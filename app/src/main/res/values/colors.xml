@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bottomNavigation">#360733</color>
+    <color name="navigationItem">#f9edd5</color>
+    <color name="toolbar">#561b51</color>
+    <color name="redCircle">#a2113a</color>
+    <color name="toolbarScoreBackground">#360733</color>
+</resources>

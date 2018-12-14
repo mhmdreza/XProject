@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@color/toolbar">
+
+    <ImageView
+        android:id="@+id/starImageView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="starImageView"
+        android:src="@drawable/ic_star"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:id="@+id/redCircle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:background="@drawable/red_circle"
+        android:layout_marginStart="@dimen/activity_horizontal_margin" />
+    
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_alignTop="@id/redCircle"
+        android:layout_alignLeft="@id/redCircle"
+        android:layout_marginLeft="-4dp"
+        android:src="@drawable/face5"
+        android:layout_alignStart="@id/redCircle"
+        android:layout_marginStart="-4dp"
+        android:contentDescription="profileImageView"
+        tools:ignore="HardcodedText" />
+    
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="20dp"
+        android:layout_height="4dp"
+        android:layout_alignTop="@id/redCircle"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/sekeeBackground"
+        android:layout_width="82dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@id/redCircle"
+        android:background="@drawable/toolbar_score_background"
+        android:layout_alignBottom="@id/spacer"
+        android:layout_marginBottom="4dp"
+        android:layout_alignStart="@id/redCircle"
+        android:layout_marginStart="40dp" />
+    
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/sekee"
+        android:layout_marginRight="-2dp"
+        android:layout_marginTop="-3dp"
+        android:layout_alignTop="@id/sekeeBackground"
+        android:layout_alignRight="@id/sekeeBackground"
+        android:layout_alignEnd="@id/sekeeBackground"
+        android:layout_marginEnd="-2dp" />
+
+    <View
+        android:id="@+id/gemBackground"
+        android:layout_width="75dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@id/redCircle"
+        android:background="@drawable/toolbar_score_background"
+        android:layout_alignTop="@id/spacer"
+        android:layout_marginTop="4dp"
+        android:layout_alignStart="@id/redCircle"
+        android:layout_marginStart="40dp" />
+
+    <ImageView
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/gem"
+        android:layout_marginRight="-9dp"
+        android:layout_marginTop="-5dp"
+        android:layout_alignTop="@id/gemBackground"
+        android:layout_alignRight="@id/gemBackground"
+        android:layout_alignEnd="@id/gemBackground" />
+    
+
+
+
+</RelativeLayout>
