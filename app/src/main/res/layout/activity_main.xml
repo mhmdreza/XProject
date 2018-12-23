@@ -8,21 +8,30 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/toolbarLayout"
-        layout="@layout/toolbar"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/toolbar" />
+
+    </android.support.v7.widget.Toolbar>
 
     <FrameLayout
-        android:layout_below="@id/toolbarLayout"
-        android:background="@drawable/background"
         android:id="@+id/mainFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_above="@id/navigation"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/background" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
         android:background="@color/bottomNavigation"
         android:foregroundGravity="center_vertical"
