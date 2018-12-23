@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:contentDescription="starImageView"
-        android:src="@drawable/ic_star"
+        android:src="@mipmap/ic_star"
         tools:ignore="HardcodedText" />
 
     <View
@@ -31,7 +31,7 @@
         android:layout_alignTop="@id/redCircle"
         android:layout_alignLeft="@id/redCircle"
         android:layout_marginLeft="-4dp"
-        android:src="@drawable/face5"
+        android:src="@mipmap/ic_face"
         android:layout_alignStart="@id/redCircle"
         android:layout_marginStart="-4dp"
         android:contentDescription="profileImageView"
@@ -59,7 +59,7 @@
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/sekee"
+        android:src="@drawable/ic_coin"
         android:layout_marginRight="-2dp"
         android:layout_marginTop="-3dp"
         android:layout_alignTop="@id/sekeeBackground"
@@ -82,7 +82,7 @@
     <ImageView
         android:layout_width="26dp"
         android:layout_height="26dp"
-        android:src="@drawable/gem"
+        android:src="@drawable/ic_gem"
         android:layout_marginRight="-9dp"
         android:layout_marginTop="-5dp"
         android:layout_alignTop="@id/gemBackground"
