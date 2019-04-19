@@ -33,6 +33,9 @@ dependencies {
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation 'com.facebook.android:facebook-login:4.39.0'
     implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
 //    implementation 'com.google.android.material:material:1.1.0-alpha01'
 
+    implementation 'com.github.florent37:android-slidr:1.0.3'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 }

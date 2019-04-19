@@ -1,175 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_red_dark"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".MainFragment">
+    tools:context=".views.main_page.MainFragment">
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar" />
 
     <LinearLayout
-        android:id="@+id/dicesLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/diceImageView"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:contentDescription="diceImageView"
-            android:src="@mipmap/ic_dices"
-            tools:ignore="HardcodedText" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp">
+
+            <View
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/beige_circle" />
+
+            <ImageView
+                android:id="@+id/dices"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_dices" />
+
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingStart="32dp"
-            tools:ignore="RtlSymmetry">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="dices"
-                android:textSize="24sp" />
+                android:layout_height="32dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="135dp"
+                android:text="DICES"
+                android:textColor="@color/beige" />
 
             <TextView
+                android:id="@+id/dicesGamePrice"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20$"
-                android:textSize="16sp" />
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="105dp"
+                android:textColor="@color/beige" />
+
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/marblesLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dicesLayout"
-        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:src="@mipmap/ic_marbles" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp">
+
+            <View
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/beige_circle" />
+
+            <ImageView
+                android:id="@+id/marbles"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_marbles" />
+
+        </RelativeLayout>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingStart="32dp"
-            tools:ignore="RtlSymmetry">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="marbles"
-                android:textSize="24sp" />
+                android:layout_height="32dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="135dp"
+                android:text="MARBLES"
+                android:textColor="@color/beige" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20$"
-                android:textSize="16sp" />
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="105dp"
+                android:text="50$"
+                android:textColor="@color/beige" />
+
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/rabbitLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/marblesLayout"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="-10dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:src="@mipmap/ic_rabbit" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp">
+
+            <View
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/beige_circle" />
+
+            <ImageView
+                android:id="@+id/rabbits"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_rabbits" />
+
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingStart="32dp"
-            tools:ignore="RtlSymmetry">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="rabbits"
-                android:textSize="24sp" />
+                android:layout_height="32dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="135dp"
+                android:text="RABBIT'S WAY"
+                android:textColor="@color/beige" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20$"
-                android:textSize="16sp" />
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="105dp"
+                android:text="100$"
+                android:textColor="@color/beige" />
+
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/birdLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rabbitLayout"
-        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:src="@mipmap/ic_birds" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/beige_circle" />
+
+            <ImageView
+                android:id="@+id/birds"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_birds" />
+
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingStart="32dp"
-            tools:ignore="RtlSymmetry">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="birds"
-                android:textSize="24sp" />
+                android:layout_height="32dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="135dp"
+                android:text="BIRDS"
+                android:textColor="@color/beige" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20$"
-                android:textSize="16sp" />
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view_background"
+                android:gravity="center"
+                android:minWidth="105dp"
+                android:text="200$"
+                android:textColor="@color/beige" />
+
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+
+    <!--<android.support.v7.widget.CardView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--app:cardBackgroundColor="@color/transparent"-->
+    <!--app:cardCornerRadius="10dp"-->
+    <!--app:cardElevation="5dp">-->
+
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="2dp"-->
+    <!--android:layout_marginTop="7dp"-->
+    <!--android:background="@drawable/text_view_background" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="2dp"-->
+    <!--android:layout_marginTop="7dp"-->
+    <!--android:text="asaasaasasassaa" />-->
+    <!--</android.support.v7.widget.CardView>-->
+
+</LinearLayout>

@@ -6,27 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".views.main_page.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/toolbar">
-
-        <include
-            android:id="@+id/toolbarLayout"
-            layout="@layout/toolbar" />
-
-    </android.support.v7.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/mainFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/navigation"
-        android:layout_below="@id/toolbar"
-        android:background="@mipmap/background" />
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/navigation"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -37,7 +25,7 @@
         android:foregroundGravity="center_vertical"
         android:minHeight="56dp"
         android:padding="0dp"
-        app:itemIconTint="@color/navigationItem"
+        app:itemIconTint="@color/beige"
         app:menu="@menu/navigation" />
 
     <!--<com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx-->

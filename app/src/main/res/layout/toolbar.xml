@@ -6,91 +6,121 @@
 
     <ImageView
         android:id="@+id/starImageView"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:contentDescription="starImageView"
-        android:src="@mipmap/ic_star"
+        android:src="@drawable/ic_star"
         tools:ignore="HardcodedText" />
 
-    <View
-        android:id="@+id/redCircle"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_centerVertical="true"
-        android:background="@drawable/red_circle"/>
-    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/starImageView"
+        android:layout_alignEnd="@id/starImageView"
+        android:layout_alignLeft="@id/starImageView"
+        android:layout_alignRight="@id/starImageView"
+        android:layout_alignStart="@id/starImageView"
+        android:layout_alignTop="@id/starImageView"
+        android:gravity="center"
+        android:text="123" />
+
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/profileImageView"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginStart="-30dp"
+        android:layout_marginTop="13sp"
+        android:layout_toEndOf="@id/profileImageView"
+        android:layout_toRightOf="@id/profileImageView"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/score_background"
+            android:layoutDirection="rtl"
+            android:paddingEnd="30dp"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:id="@+id/addCoin"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="-2dp"
+                android:layout_marginStart="-2dp"
+                android:background="@drawable/score_background"
+                android:gravity="center"
+                android:src="@drawable/ic_plus" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_coin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:lines="1"
+                android:text="1000"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/score_background"
+            android:layoutDirection="rtl"
+            android:paddingEnd="30dp"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:id="@+id/addGem"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="-2dp"
+                android:layout_marginStart="-2dp"
+                android:background="@drawable/score_background"
+                android:gravity="center"
+                android:src="@drawable/ic_plus" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_gem" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:lines="1"
+                android:text="1000"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
-        android:layout_alignTop="@id/redCircle"
-        android:layout_alignLeft="@id/redCircle"
-        android:layout_marginLeft="-4dp"
-        android:src="@mipmap/ic_face"
-        android:layout_alignStart="@id/redCircle"
-        android:layout_marginStart="-4dp"
+        android:layout_width="72dp"
+        android:layout_centerVertical="true"
+        android:layout_height="72dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/profile_background"
         android:contentDescription="profileImageView"
+        android:src="@mipmap/face3"
         tools:ignore="HardcodedText" />
-    
-    <View
-        android:id="@+id/spacer"
-        android:layout_width="20dp"
-        android:layout_height="4dp"
-        android:layout_alignTop="@id/redCircle"
-        android:layout_marginTop="30dp"/>
-
-    <View
-        android:id="@+id/sekeeBackground"
-        android:layout_width="82dp"
-        android:layout_marginLeft="40dp"
-        android:layout_height="18dp"
-        android:layout_alignLeft="@id/redCircle"
-        android:background="@drawable/toolbar_score_background"
-        android:layout_alignBottom="@id/spacer"
-        android:layout_marginBottom="4dp"
-        android:layout_alignStart="@id/redCircle"
-        android:layout_marginStart="40dp" />
-    
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_coin"
-        android:layout_marginRight="-2dp"
-        android:layout_marginTop="-3dp"
-        android:layout_alignTop="@id/sekeeBackground"
-        android:layout_alignRight="@id/sekeeBackground"
-        android:layout_alignEnd="@id/sekeeBackground"
-        android:layout_marginEnd="-2dp" />
-
-    <View
-        android:id="@+id/gemBackground"
-        android:layout_width="75dp"
-        android:layout_marginLeft="40dp"
-        android:layout_height="18dp"
-        android:layout_alignLeft="@id/redCircle"
-        android:background="@drawable/toolbar_score_background"
-        android:layout_alignTop="@id/spacer"
-        android:layout_marginTop="4dp"
-        android:layout_alignStart="@id/redCircle"
-        android:layout_marginStart="40dp" />
-
-    <ImageView
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:src="@drawable/ic_gem"
-        android:layout_marginRight="-9dp"
-        android:layout_marginTop="-5dp"
-        android:layout_alignTop="@id/gemBackground"
-        android:layout_alignRight="@id/gemBackground"
-        android:layout_alignEnd="@id/gemBackground"
-        android:layout_marginEnd="-9dp" />
-    
-
-
 
 </RelativeLayout>
