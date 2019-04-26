@@ -32,7 +32,7 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(LAYOUT_RESOURCE_ID, container, false);
         ImageView profileImageView = view.findViewById(R.id.profileImageView);
         TextView dice = view.findViewById(R.id.dicesGamePrice);
         dice.setText("20$ dsa");

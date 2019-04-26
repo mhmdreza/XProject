@@ -26,7 +26,6 @@ import ir.sharif.vamdeh.webservices.webservices.profile.ProfileResponse;
 
 public class MainActivity extends BaseActivity {
 
-    private static final String MAIN_FRAGMENT = "MAIN_FRAGMENT";
     private int selectedMenuItemId = R.id.navigation_ranking;
 
     @Override
