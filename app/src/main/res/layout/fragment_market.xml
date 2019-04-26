@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/titleTextColor"
     tools:context=".views.market.MarketFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -651,6 +650,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="32dp"
                 app:cardBackgroundColor="@color/cardBackground"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="10dp">
@@ -768,7 +768,7 @@
                             android:layout_toRightOf="@id/equalTextView"
                             android:background="@drawable/price_background"
                             android:gravity="center"
-                            android:minWidth="70dp"
+                            android:minWidth="60dp"
                             android:text="y.yy $"
                             android:textSize="16sp" />
 
@@ -798,7 +798,7 @@
                             android:layout_marginTop="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
-                            android:minWidth="70dp"
+                            android:minWidth="60dp"
                             android:text="z.zz $"
                             android:textSize="16sp" />
                     </RelativeLayout>

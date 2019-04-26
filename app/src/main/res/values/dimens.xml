@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="design_navigation_icon_size" tools:override="true">56dp</dimen>
     <dimen name="seek_bar_thickness">20dp</dimen>
+    <dimen name="design_bottom_navigation_icon_size" tools:override="true">60dp</dimen> //do not change this line
+    <dimen name="design_bottom_navigation_height" tools:override="true">60dp</dimen> //do not change this line
 </resources>

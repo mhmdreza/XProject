@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/navigation_info"
-        android:icon="@drawable/ic_info"
+        android:icon="@drawable/bn_info"
         android:title="" />
 
     <item
         android:id="@+id/navigation_spinner"
-        android:icon="@drawable/ic_spinner"
+        android:icon="@drawable/bn_spinner"
         android:title="" />
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home"
+        android:id="@+id/navigation_ranking"
+        android:icon="@drawable/bn_ranking"
         android:title="" />
 
     <item
         android:id="@+id/navigation_coin"
-        android:icon="@drawable/ic_coin"
+        android:icon="@drawable/bn_coin"
         android:title="" />
 
     <item
-        android:id="@+id/navigation_basket"
-        android:icon="@drawable/ic_basket"
+        android:id="@+id/navigation_market"
+        android:icon="@drawable/bn_market"
         android:title="" />
 
 </menu>

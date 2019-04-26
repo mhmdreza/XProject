@@ -26,6 +26,9 @@ allprojects {
         maven {
             url 'https://jitpack.io'
             }
+        flatDir {
+            dirs 'libs'
+        }
         maven { url 'https://maven.fabric.io/public' }
     }
 }
