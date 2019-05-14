@@ -1,8 +1,8 @@
-package com.example.mhmdreza_j.xproject.views.market;
+package com.example.mhmdreza_j.xproject.views.coin;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +13,10 @@ import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MarketFragment extends BaseFragment {
+public class CoinFragment extends BaseFragment {
 
 
-    public MarketFragment() {
+    public CoinFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class MarketFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_market, container, false);
+        return inflater.inflate(R.layout.fragment_coin, container, false);
     }
 
 }

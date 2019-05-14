@@ -8,21 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 
-import com.example.mhmdreza_j.xproject.utils.ActivityHelper;
 import com.example.mhmdreza_j.xproject.R;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseActivity;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
+import com.example.mhmdreza_j.xproject.views.coin.CoinFragment;
 import com.example.mhmdreza_j.xproject.views.market.MarketFragment;
-
-import ir.sharif.vamdeh.webservices.WebserviceHelper;
-import ir.sharif.vamdeh.webservices.webservices.buy.BuyResponse;
-import ir.sharif.vamdeh.webservices.webservices.profile.ProfileResponse;
+import com.example.mhmdreza_j.xproject.views.wheel_of_furtune.WheelOfFortuneFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -78,17 +76,23 @@ public class MainActivity extends BaseActivity {
     }
 
     private void startInnerFragment() {
+        BaseFragment fragment;
         switch (selectedMenuItemId) {
             case R.id.navigation_coin:
-                startFragment(new MarketFragment());
+                fragment = new CoinFragment();
+                break;
+            case R.id.navigation_spinner:
+                fragment = new WheelOfFortuneFragment();
+                break;
+            case R.id.navigation_market:
+                fragment = new MarketFragment();
                 break;
             case R.id.navigation_info:
-            case R.id.navigation_market:
             case R.id.navigation_ranking:
-            case R.id.navigation_spinner:
             default:
-                startFragment(new MainFragment());
+                fragment = new MainFragment();
         }
+        startFragment(fragment);
     }
 
     private void startFragment(BaseFragment fragment) {

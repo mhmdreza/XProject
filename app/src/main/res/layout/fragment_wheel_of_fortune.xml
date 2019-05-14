@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.wheel_of_furtune.WheelOfFortuneFragment">
+
+    <ImageView
+        android:id="@+id/homeButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/ic_home" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+
+        <View
+            android:id="@+id/wheel"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_alignBottom="@+id/wheelFrame"
+            android:layout_alignEnd="@+id/wheelFrame"
+            android:layout_alignStart="@+id/wheelFrame"
+            android:layout_alignTop="@+id/wheelFrame"
+            android:background="@mipmap/wheel" />
+
+        <View
+            android:id="@+id/wheelFrame"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:background="@mipmap/wheel_frame"
+            android:foreground="@mipmap/wheel_cursor" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/spin"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="23:59:50 UNTIL NEXT SPIN"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/beige"
+        android:layout_width="280dp"
+        android:layout_height="64dp"
+        android:background="@drawable/text_view_background"/>
+
+</LinearLayout>

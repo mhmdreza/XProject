@@ -1,12 +1,15 @@
 package com.example.mhmdreza_j.xproject.views.main_page;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,4 +49,31 @@ public class MainFragment extends BaseFragment {
         return view;
     }
 
+}
+
+class fdf extends AdapterView{
+
+    public fdf(Context context) {
+        super(context);
+    }
+
+    @Override
+    public Adapter getAdapter() {
+        return null;
+    }
+
+    @Override
+    public void setAdapter(Adapter adapter) {
+
+    }
+
+    @Override
+    public View getSelectedView() {
+        return null;
+    }
+
+    @Override
+    public void setSelection(int i) {
+
+    }
 }
