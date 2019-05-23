@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -19,7 +21,7 @@ android {
 }
 
 dependencies {
-    implementation(name: 'xp_webservice', ext: 'aar')
+//    implementation(name: 'xp_webservice', ext: 'aar')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -36,8 +38,18 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
 //    implementation 'com.google.android.material:material:1.1.0-alpha01'
-
 //    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
     implementation 'com.github.florent37:android-slidr:1.0.3'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
+    /** These are for webservice module **/
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    /** till here **/
+}
+repositories {
+    mavenCentral()
+    google()
 }
