@@ -2,7 +2,6 @@ package com.example.mhmdreza_j.xproject.views.main_page;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mhmdreza_j.xproject.R;
+import com.example.mhmdreza_j.xproject.blurry.Blurry;
 import com.example.mhmdreza_j.xproject.utils.ActivityHelper;
+import com.example.mhmdreza_j.xproject.utils.BlurryUtil;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
+
 
 
 /**
@@ -35,14 +36,16 @@ public class MainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(LAYOUT_RESOURCE_ID, container, false);
+        final View view = inflater.inflate(LAYOUT_RESOURCE_ID, container, false);
         ImageView profileImageView = view.findViewById(R.id.profileImageView);
         TextView dice = view.findViewById(R.id.dicesGamePrice);
         dice.setText("20$ dsa");
         profileImageView.bringToFront();
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view1) {
+                Blurry.ImageComposer composer = Blurry.with(view.getContext()).capture(view.getRootView());
+                BlurryUtil.saveCompser(composer);
                 ActivityHelper.startProfileActivity(view.getContext());
             }
         });

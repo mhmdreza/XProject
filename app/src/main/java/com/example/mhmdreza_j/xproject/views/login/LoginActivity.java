@@ -125,6 +125,9 @@ public class LoginActivity extends BaseActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor edit = sharedpreferences.edit();
+                edit.putBoolean(IS_USER_LOGGED_IN, true);
+                edit.apply();
                 ActivityHelper.startMainActivity(getApplicationContext());
             }
         };

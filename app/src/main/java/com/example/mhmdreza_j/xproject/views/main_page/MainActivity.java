@@ -1,5 +1,6 @@
 package com.example.mhmdreza_j.xproject.views.main_page;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -31,7 +32,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initBottomNavigation();
-        startInnerFragment();
+        startInnerFragment(R.id.navigation_ranking);
     }
 
     private void initBottomNavigation() {
@@ -44,11 +45,10 @@ public class MainActivity extends BaseActivity {
                 Drawable icon = menuItem.getIcon();
                 icon.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
                 menuItem.setIcon(icon);
-                startInnerFragment();
+                startInnerFragment(menuItem.getItemId());
                 return false;
             }
         });
-//        navigationView.
     }
 
     private void clearColorFilter() {
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
         drawable.clearColorFilter();
     }
 
-    private void startInnerFragment() {
+    public void startInnerFragment(int selectedMenuItemId) {
         BaseFragment fragment;
         switch (selectedMenuItemId) {
             case R.id.navigation_coin:
