@@ -1,6 +1,7 @@
 package com.example.mhmdreza_j.xproject.views.main_page;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -9,96 +10,48 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.ContextMenu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.Spinner;
 
 import com.example.mhmdreza_j.xproject.R;
+import com.example.mhmdreza_j.xproject.application.ApplicationLoader;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseActivity;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
 import com.example.mhmdreza_j.xproject.views.coin.CoinFragment;
+import com.example.mhmdreza_j.xproject.views.login.LoginFragment;
 import com.example.mhmdreza_j.xproject.views.market.MarketFragment;
 import com.example.mhmdreza_j.xproject.views.wheel_of_furtune.WheelOfFortuneFragment;
 
+import static com.example.mhmdreza_j.xproject.views.login.LoginFragment.IS_USER_LOGGED_IN;
+
 public class MainActivity extends BaseActivity {
 
-    private int selectedMenuItemId = R.id.navigation_ranking;
+
+    private BaseFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initBottomNavigation();
-        startInnerFragment(R.id.navigation_ranking);
-    }
-
-    private void initBottomNavigation() {
-        BottomNavigationView navigationView = findViewById(R.id.navigation);
-        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                clearColorFilter();
-                selectedMenuItemId = menuItem.getItemId();
-                Drawable icon = menuItem.getIcon();
-                icon.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-                menuItem.setIcon(icon);
-                startInnerFragment(menuItem.getItemId());
-                return false;
-            }
-        });
-    }
-
-    private void clearColorFilter() {
-        Drawable drawable;
-        switch (selectedMenuItemId) {
-            case R.id.navigation_coin:
-                drawable = getResources().getDrawable(R.drawable.bn_coin);
-                break;
-            case R.id.navigation_info:
-                drawable = getResources().getDrawable(R.drawable.bn_info);
-                break;
-            case R.id.navigation_market:
-                drawable = getResources().getDrawable(R.drawable.bn_market);
-                break;
-            case R.id.navigation_ranking:
-                drawable = getResources().getDrawable(R.drawable.bn_ranking);
-                break;
-            case R.id.navigation_spinner:
-                drawable = getResources().getDrawable(R.drawable.bn_spinner);
-                break;
-            default:
-                return;
+        SharedPreferences sharedPreferences = getSharedPreferences(ApplicationLoader.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);
+        if (sharedPreferences.contains(IS_USER_LOGGED_IN)
+                && sharedPreferences.getBoolean(IS_USER_LOGGED_IN, false)) {
+            startFragment(new MainFragment());
         }
-        drawable.clearColorFilter();
-    }
-
-    public void startInnerFragment(int selectedMenuItemId) {
-        BaseFragment fragment;
-        switch (selectedMenuItemId) {
-            case R.id.navigation_coin:
-                fragment = new CoinFragment();
-                break;
-            case R.id.navigation_spinner:
-                fragment = new WheelOfFortuneFragment();
-                break;
-            case R.id.navigation_market:
-                fragment = new MarketFragment();
-                break;
-            case R.id.navigation_info:
-            case R.id.navigation_ranking:
-            default:
-                fragment = new MainFragment();
+        else {
+            startFragment(new LoginFragment());
         }
-        startFragment(fragment);
     }
 
-    private void startFragment(BaseFragment fragment) {
+    public void startFragment(BaseFragment fragment) {
+        this.fragment = fragment;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         fragmentTransaction.replace(R.id.mainFragment, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        fragment.onBackPressed();
     }
 }

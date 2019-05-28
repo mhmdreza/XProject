@@ -1,7 +1,7 @@
 package com.example.mhmdreza_j.xproject.utils;
 
 
-import com.example.mhmdreza_j.xproject.blurry.Blurry;
+import com.example.mhmdreza_j.xproject.lib.blurry.Blurry;
 
 public class BlurryUtil {
     private static Blurry.ImageComposer composer = null;

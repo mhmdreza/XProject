@@ -9,8 +9,21 @@
     <color name="redCircle">#a2113a</color>
     <color name="toolbarScoreBackground">#360733</color>
     <color name="beige">#f9edd5</color>
+    <color name="green">#00FF0C</color>
     <color name="transparent">#0fff</color>
     <color name="darkBlue">#131c47</color>
     <color name="cardBackground">#faa795</color>
     <color name="titleTextColor">#fe6458</color>
+    <color name="yellow">#FFF600</color>
+
+
+    <color name="colorBottomNavigationPrimary">#3F51B5</color>
+    <color name="colorBottomNavigationPrimaryDark">#303F9F</color>
+    <color name="colorBottomNavigationAccent">#fe6458</color>
+    <color name="colorBottomNavigationInactive">#f9edd5</color>
+    <color name="colorBottomNavigationDisable">#3A000000</color>
+    <color name="colorBottomNavigationActiveColored">#FFFFFF</color>
+    <color name="colorBottomNavigationInactiveColored">#50FFFFFF</color>
+    <color name="colorBottomNavigationSelectedBackground">#17000000</color>
+    <color name="colorBottomNavigationNotification">#F63D2B</color>
 </resources>
