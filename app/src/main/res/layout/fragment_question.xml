@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.game.QuestionFragment">
+
+    <ImageView
+        android:id="@+id/homeButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_home" />
+
+    <TextView
+        android:layout_width="265dp"
+        android:layout_height="75dp"
+        android:gravity="center"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:textSize="24sp"
+        android:text="SHOW THE ANSWER FOR 300$"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/answer_background" />
+
+    <TextView
+        android:layout_width="265dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="135dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="WATCH A VIDEO T0 SHOW THE ANSWER"
+        android:background="@drawable/answer_background" />
+
+    <View
+        android:layout_width="265dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="320dp"
+        android:background="@mipmap/question" />
+
+
+</FrameLayout>

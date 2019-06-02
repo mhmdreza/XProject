@@ -37,9 +37,6 @@ public class WheelOfFortuneFragment extends BaseFragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_wheel_of_fortune, container, false);
-        final TextView spin = view.findViewById(R.id.spin);
-        final View wheelImageView = view.findViewById(R.id.wheel);
-        final Random random = new Random();
 
         ImageView homeButton = view.findViewById(R.id.homeButton);
         homeButton.setOnClickListener(new View.OnClickListener() {
@@ -48,19 +45,24 @@ public class WheelOfFortuneFragment extends BaseFragment {
                 onBackPressed();
             }
         });
-        int spinAmount = random.nextInt() % 720 + 720;
-        final RotateAnimation animRotate = new RotateAnimation(0.0f, -390.0f,
-                RotateAnimation.RELATIVE_TO_SELF, 0.504f,
-                RotateAnimation.RELATIVE_TO_SELF, 0.442f);
-        animRotate.setDuration(5000);
-        animRotate.setInterpolator(new DecelerateInterpolator());
 
-        spin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                wheelImageView.startAnimation(animRotate);
-            }
-        });
+//        final TextView spin = view.findViewById(R.id.spin);
+//        final View wheelImageView = view.findViewById(R.id.wheel);
+//        final Random random = new Random();
+//
+//        int spinAmount = random.nextInt() % 720 + 720;
+//        final RotateAnimation animRotate = new RotateAnimation(0.0f, -390.0f,
+//                RotateAnimation.RELATIVE_TO_SELF, 0.504f,
+//                RotateAnimation.RELATIVE_TO_SELF, 0.442f);
+//        animRotate.setDuration(5000);
+//        animRotate.setInterpolator(new DecelerateInterpolator());
+//
+//        spin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                wheelImageView.startAnimation(animRotate);
+//            }
+//        });
         return view;
     }
 

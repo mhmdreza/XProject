@@ -33,7 +33,7 @@ public class ProfileFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        Blurry.ImageComposer composer = BlurryUtil.getComposer();
+        Blurry.ImageComposer composer = BlurryUtil.getProfileComposer();
 
         LinearLayout rootLayout = view.findViewById(R.id.rootLayout);
         if (composer != null) {

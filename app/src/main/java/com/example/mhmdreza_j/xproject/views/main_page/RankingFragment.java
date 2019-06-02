@@ -2,6 +2,7 @@ package com.example.mhmdreza_j.xproject.views.main_page;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,36 +40,36 @@ public class RankingFragment extends BaseFragment {
         final View view = inflater.inflate(LAYOUT_RESOURCE_ID, container, false);
         ImageView profileImageView = view.findViewById(R.id.profileImageView);
 
-        TextView dice = view.findViewById(R.id.dicesGamePrice);
-        dice.setText("20$ ");
-        dice.setShadowLayer(10, 10, 10, R.color.darkBlue);
-
-        ImageView dices = view.findViewById(R.id.rabbits);
-        if (dices == null) {
-            Toast.makeText(view.getContext(), "asded", Toast.LENGTH_SHORT).show();
-        } else {
-            dices.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view1) {
-                    if (getActivity() == null) return;
-
-                    nextFragment = new StartGameFragment();
-                    onNextPressed();
-                }
-            });
-        }
+        view.findViewById(R.id.dicesLayout).setOnClickListener(getStartGameOnClickListener());
+        view.findViewById(R.id.marblesLayout).setOnClickListener(getStartGameOnClickListener());
+        view.findViewById(R.id.rabbitsLayout).setOnClickListener(getStartGameOnClickListener());
+        view.findViewById(R.id.birdsLayout).setOnClickListener(getStartGameOnClickListener());
 
         profileImageView.bringToFront();
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                Blurry.ImageComposer composer = Blurry.with(view.getContext()).capture(parentFragment.getView());
-                BlurryUtil.saveCompser(composer);
+                Blurry.ImageComposer composer = Blurry.with(view.getContext())
+                        .color(R.color.dark)
+                        .capture(parentFragment.getView());
+                BlurryUtil.saveProfileComposer(composer);
                 nextFragment = new ProfileFragment();
                 onNextPressed();
             }
         });
         return view;
+    }
+
+    @NonNull
+    private View.OnClickListener getStartGameOnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                if (getActivity() == null) return;
+                nextFragment = new StartGameFragment();
+                onNextPressed();
+            }
+        };
     }
 
 }

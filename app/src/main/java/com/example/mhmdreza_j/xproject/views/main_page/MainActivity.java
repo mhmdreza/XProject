@@ -2,28 +2,22 @@ package com.example.mhmdreza_j.xproject.views.main_page;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.mhmdreza_j.xproject.R;
 import com.example.mhmdreza_j.xproject.application.ApplicationLoader;
-import com.example.mhmdreza_j.xproject.views.base_class.BaseActivity;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
-import com.example.mhmdreza_j.xproject.views.coin.CoinFragment;
 import com.example.mhmdreza_j.xproject.views.login.LoginFragment;
-import com.example.mhmdreza_j.xproject.views.market.MarketFragment;
-import com.example.mhmdreza_j.xproject.views.wheel_of_furtune.WheelOfFortuneFragment;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static com.example.mhmdreza_j.xproject.views.login.LoginFragment.IS_USER_LOGGED_IN;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
 
     private BaseFragment fragment;
@@ -31,6 +25,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/LucidaGrandeBold.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         setContentView(R.layout.activity_main);
         SharedPreferences sharedPreferences = getSharedPreferences(ApplicationLoader.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);
         if (sharedPreferences.contains(IS_USER_LOGGED_IN)
@@ -40,6 +39,11 @@ public class MainActivity extends BaseActivity {
         else {
             startFragment(new LoginFragment());
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     public void startFragment(BaseFragment fragment) {

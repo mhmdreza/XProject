@@ -11,7 +11,7 @@ class WebservicePrefSetting private constructor(context: Context) {
         get() = sharedPreferences.getBoolean(PrefConstants.IS_REGISTER, false)
         set(register) = sharedPreferences.edit().putBoolean(PrefConstants.IS_REGISTER, register).apply()
 
-    val token: String
+    val token: String?
         get() = sharedPreferences.getString(PrefConstants.SHARED_KEY, "")
 
     fun saveToken(key: String) {

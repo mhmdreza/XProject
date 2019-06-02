@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.webservices.userRecord
+package com.example.mhmdreza_j.xproject.webservice.webservices.userRecord
 
 import ir.sharif.vamdeh.webservices.base.MyRetrofit
 import ir.sharif.vamdeh.webservices.base.WebserviceException

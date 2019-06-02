@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.webservices.battleEntrance
+package com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance
 
 import ir.sharif.vamdeh.webservices.base.Constants.Category
 import ir.sharif.vamdeh.webservices.base.MyRetrofit

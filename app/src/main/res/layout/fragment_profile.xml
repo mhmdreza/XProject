@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".views.profile.ProfileFragment">
@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginEnd="12dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
         android:drawableEnd="@drawable/ic_close"
         android:drawablePadding="2dp"
         android:gravity="center_vertical"
@@ -36,6 +36,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:gravity="center"
+                android:shadowColor="@color/darkBlue"
+                android:shadowDy="5"
+                android:shadowRadius="10"
                 android:text="USERNAME"
                 android:textColor="@color/beige"
                 android:textSize="18sp" />
@@ -43,9 +46,9 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="-10dp"
+                android:layout_marginEnd="24dp"
                 android:paddingTop="5dp">
 
                 <LinearLayout
@@ -76,8 +79,7 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="-2dp"
-                            android:layout_marginStart="-2dp"
+                            android:layout_marginStart="-1dp"
                             android:background="@drawable/score_background"
                             android:gravity="center"
                             android:src="@drawable/ic_plus" />
@@ -96,7 +98,6 @@
                             android:layout_gravity="center_vertical"
                             android:lines="1"
                             android:paddingEnd="10dp"
-                            android:paddingLeft="10dp"
                             android:text="1000"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -107,16 +108,14 @@
                         android:layout_marginTop="8dp"
                         android:background="@drawable/score_background"
                         android:layoutDirection="rtl"
-                        android:paddingEnd="40dp"
-                        android:paddingRight="40dp">
+                        android:paddingEnd="40dp">
 
                         <ImageView
                             android:id="@+id/addGem"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="-2dp"
-                            android:layout_marginStart="-2dp"
+                            android:layout_marginStart="-1dp"
                             android:background="@drawable/score_background"
                             android:gravity="center"
                             android:src="@drawable/ic_plus" />
@@ -144,8 +143,8 @@
                     android:id="@+id/profileImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/profile_background"
                     android:src="@mipmap/face1" />
@@ -156,8 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="18dp">
 
                 <View
                     android:id="@+id/divider"
@@ -169,9 +168,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@id/divider"
-                    android:layout_alignParentLeft="true"
+                    android:gravity="start"
                     android:layout_alignParentStart="true"
-                    android:layout_alignRight="@id/divider"
                     android:orientation="vertical">
 
                     <TextView
@@ -179,6 +177,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RANK:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -188,6 +189,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
                         android:text="GAMES WON:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -197,6 +201,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
                         android:text="AVERAGE SCORE:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -205,12 +212,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/divider"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_alignStart="@id/divider"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="start"
                     android:orientation="vertical"
-                    android:paddingLeft="2dp"
                     android:paddingStart="2dp">
 
 
@@ -218,8 +223,10 @@
                         android:id="@+id/titleTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
                         android:text="TITLE:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -229,6 +236,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
                         android:text="GAMES PLAYED:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -238,6 +248,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
                         android:text="WON IN A ROW:"
+                        android:shadowColor="@color/darkBlue"
+                        android:shadowDy="5"
+                        android:shadowRadius="10"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -250,7 +263,10 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="FRIENDS"
-                android:textColor="@color/beige"
+                android:shadowColor="@color/darkBlue"
+                android:shadowDy="5"
+                android:shadowRadius="10"
+                android:textColor="@color/titleTextColor"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -307,31 +323,10 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="ACHIEVEMENTS"
-                android:textColor="@color/beige"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="ACHIEVEMENTS"
-                android:textColor="@color/beige"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="ACHIEVEMENTS"
-                android:textColor="@color/beige"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="ACHIEVEMENTS"
-                android:textColor="@color/beige"
+                android:shadowColor="@color/darkBlue"
+                android:shadowDy="5"
+                android:shadowRadius="10"
+                android:textColor="@color/titleTextColor"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -350,10 +345,10 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/cupImageView"
-                        android:layout_alignEnd="@id/cupImageView"
                         android:layout_alignStart="@id/cupImageView"
                         android:layout_alignTop="@id/cupImageView"
+                        android:layout_alignEnd="@id/cupImageView"
+                        android:layout_alignBottom="@id/cupImageView"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/cup_background" />
 
@@ -363,6 +358,7 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/cup1" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="70dp"
                     android:layout_height="80dp"
@@ -372,10 +368,10 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/cup2ImageView"
-                        android:layout_alignEnd="@id/cup2ImageView"
                         android:layout_alignStart="@id/cup2ImageView"
                         android:layout_alignTop="@id/cup2ImageView"
+                        android:layout_alignEnd="@id/cup2ImageView"
+                        android:layout_alignBottom="@id/cup2ImageView"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/cup_background" />
 
@@ -385,6 +381,7 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/cup2" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="70dp"
                     android:layout_height="80dp"
@@ -394,10 +391,10 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/cup3ImageView"
-                        android:layout_alignEnd="@id/cup3ImageView"
                         android:layout_alignStart="@id/cup3ImageView"
                         android:layout_alignTop="@id/cup3ImageView"
+                        android:layout_alignEnd="@id/cup3ImageView"
+                        android:layout_alignBottom="@id/cup3ImageView"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/cup_background" />
 
@@ -407,6 +404,7 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/cup3" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="70dp"
                     android:layout_height="80dp"
@@ -416,15 +414,116 @@
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/cup4ImageView"
-                        android:layout_alignEnd="@id/cup4ImageView"
                         android:layout_alignStart="@id/cup4ImageView"
                         android:layout_alignTop="@id/cup4ImageView"
+                        android:layout_alignEnd="@id/cup4ImageView"
+                        android:layout_alignBottom="@id/cup4ImageView"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/cup_background" />
 
                     <ImageView
                         android:id="@+id/cup4ImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/cup4" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:alpha="0.4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/cupImageView1"
+                        android:layout_alignTop="@id/cupImageView1"
+                        android:layout_alignEnd="@id/cupImageView1"
+                        android:layout_alignBottom="@id/cupImageView1"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cup_background" />
+
+                    <ImageView
+                        android:id="@+id/cupImageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/cup1" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/cup2ImageView1"
+                        android:layout_alignTop="@id/cup2ImageView1"
+                        android:layout_alignEnd="@id/cup2ImageView1"
+                        android:layout_alignBottom="@id/cup2ImageView1"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cup_background" />
+
+                    <ImageView
+                        android:id="@+id/cup2ImageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/cup2" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/cup3ImageView1"
+                        android:layout_alignTop="@id/cup3ImageView1"
+                        android:layout_alignEnd="@id/cup3ImageView1"
+                        android:layout_alignBottom="@id/cup3ImageView1"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cup_background" />
+
+                    <ImageView
+                        android:id="@+id/cup3ImageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/cup3" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/cup4ImageView1"
+                        android:layout_alignTop="@id/cup4ImageView1"
+                        android:layout_alignEnd="@id/cup4ImageView1"
+                        android:layout_alignBottom="@id/cup4ImageView1"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cup_background" />
+
+                    <ImageView
+                        android:id="@+id/cup4ImageView1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/cup4" />

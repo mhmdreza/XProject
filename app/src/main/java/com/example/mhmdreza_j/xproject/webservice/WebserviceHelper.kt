@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices
+package com.example.mhmdreza_j.xproject.webservice
 
 import android.content.Context
 import ir.sharif.vamdeh.webservices.base.Constants.Category
@@ -8,16 +8,16 @@ import java.io.IOException
 
 import ir.sharif.vamdeh.webservices.base.WebserviceException
 import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
-import ir.sharif.vamdeh.webservices.webservices.battleEntrance.EntranceProcess
-import ir.sharif.vamdeh.webservices.webservices.battleEntrance.EntranceResponse
-import ir.sharif.vamdeh.webservices.webservices.buy.BuyProcess
-import ir.sharif.vamdeh.webservices.webservices.buy.BuyResponse
-import ir.sharif.vamdeh.webservices.webservices.login.LoginProcess
-import ir.sharif.vamdeh.webservices.webservices.login.LoginResponse
-import ir.sharif.vamdeh.webservices.webservices.profile.ProfileProcess
-import ir.sharif.vamdeh.webservices.webservices.profile.ProfileResponse
-import ir.sharif.vamdeh.webservices.webservices.userRecord.RecordProcess
-import ir.sharif.vamdeh.webservices.webservices.userRecord.RecordResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
 
 object WebserviceHelper {
     @Throws(IOException::class, WebserviceException::class)

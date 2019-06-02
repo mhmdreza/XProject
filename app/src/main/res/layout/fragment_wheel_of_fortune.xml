@@ -14,31 +14,12 @@
         android:layout_marginStart="12dp"
         android:src="@drawable/ic_home" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal">
-
-        <View
-            android:id="@+id/wheel"
-            android:layout_width="360dp"
-            android:layout_height="360dp"
-            android:layout_alignBottom="@+id/wheelFrame"
-            android:layout_alignEnd="@+id/wheelFrame"
-            android:layout_alignStart="@+id/wheelFrame"
-            android:layout_alignTop="@+id/wheelFrame"
-            android:background="@mipmap/wheel" />
-
-        <View
-            android:id="@+id/wheelFrame"
-            android:layout_width="360dp"
-            android:layout_height="360dp"
-            android:background="@mipmap/wheel_frame"
-            android:foreground="@mipmap/wheel_cursor" />
-
-    </RelativeLayout>
-
+        android:src="@mipmap/big_spinner"/>
 
     <TextView
         android:id="@+id/spin"

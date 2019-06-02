@@ -1,17 +1,17 @@
 package ir.sharif.vamdeh.webservices.base
 
 import ir.sharif.vamdeh.webservices.base.Constants.WebserviceAdresses
-import ir.sharif.vamdeh.webservices.webservices.battleEntrance.EntranceRequest
-import ir.sharif.vamdeh.webservices.webservices.battleEntrance.EntranceResponse
-import ir.sharif.vamdeh.webservices.webservices.buy.BuyRequest
-import ir.sharif.vamdeh.webservices.webservices.buy.BuyResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceRequest
+import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyRequest
+import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
-import ir.sharif.vamdeh.webservices.webservices.login.LoginRequest
-import ir.sharif.vamdeh.webservices.webservices.login.LoginResponse
-import ir.sharif.vamdeh.webservices.webservices.profile.ProfileResponse
-import ir.sharif.vamdeh.webservices.webservices.userRecord.RecordResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginRequest
+import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
 import retrofit2.http.POST
 
 interface WebserviceUrls {

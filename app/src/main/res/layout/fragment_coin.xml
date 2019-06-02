@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.coin.CoinFragment">
 
-    <include layout="@layout/score_view"
+    <include
+        layout="@layout/score_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,6 +43,8 @@
                         android:layout_marginBottom="2dp"
                         android:gravity="center"
                         android:text="FREE COIN"
+                        android:textAppearance="@style/TextAppearance.FontPath"
+                        android:textColor="@color/darkBlue"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -56,10 +59,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -72,7 +74,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -84,19 +85,18 @@
                             android:layout_height="28dp"
                             android:layout_gravity="center"
                             android:layout_marginEnd="12dp"
-                            android:layout_marginRight="12dp"
                             android:gravity="start"
-                            android:text="invite friend and get"
+                            android:text="INVITE FRIENDS AND GET"
                             android:textColor="@color/titleTextColor"
-                            android:textSize="22sp" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:background="@drawable/beige_background"
                         android:layoutDirection="rtl"
                         android:orientation="horizontal">
@@ -104,10 +104,10 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -134,18 +134,18 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginRight="12dp"
                             android:gravity="start"
-                            android:text="invite friend and get"
+                            android:text="RATE US AND GET"
                             android:textColor="@color/titleTextColor"
-                            android:textSize="22sp" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="4dp"
                         android:background="@drawable/beige_background"
                         android:layoutDirection="rtl"
                         android:orientation="horizontal">
@@ -153,10 +153,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -169,7 +168,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -181,11 +179,10 @@
                             android:layout_height="28dp"
                             android:layout_gravity="center"
                             android:layout_marginEnd="12dp"
-                            android:layout_marginRight="12dp"
                             android:gravity="start"
-                            android:text="invite friend and get"
+                            android:text="WTCH VIDEO AND GET"
                             android:textColor="@color/titleTextColor"
-                            android:textSize="22sp" />
+                            android:textSize="20sp" />
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -209,6 +206,7 @@
                         android:layout_marginBottom="2dp"
                         android:gravity="center"
                         android:text="COIN"
+                        android:textColor="@color/darkBlue"
                         android:textSize="16sp" />
 
                     <RelativeLayout
@@ -222,12 +220,10 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -251,10 +247,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -266,20 +260,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:background="@drawable/beige_background"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -292,7 +284,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -303,10 +294,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -317,22 +306,20 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="4dp"
                         android:background="@drawable/beige_background"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -345,7 +332,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -356,10 +342,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -388,6 +372,7 @@
                         android:layout_marginBottom="2dp"
                         android:gravity="center"
                         android:text="GEMS"
+                        android:textColor="@color/darkBlue"
                         android:textSize="16sp" />
 
                     <RelativeLayout
@@ -401,12 +386,10 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -419,7 +402,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -430,10 +412,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -445,20 +425,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:background="@drawable/beige_background"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -471,7 +449,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -482,10 +459,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -496,22 +471,20 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="16dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="4dp"
                         android:background="@drawable/beige_background"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -524,7 +497,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="4dp"
-                                android:layout_marginRight="4dp"
                                 android:gravity="end"
                                 android:minWidth="36dp"
                                 android:text="xxx"
@@ -535,10 +507,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="70dp"
@@ -573,9 +543,9 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
+                        android:layout_marginBottom="8dp"
                         android:background="@drawable/beige_background"
                         android:orientation="horizontal">
 
@@ -583,12 +553,12 @@
                             android:id="@+id/recommendedGem"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginLeft="4dp"
+                            android:layout_alignParentLeft="true"
                             android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
 
@@ -624,8 +594,8 @@
                             android:id="@+id/recommendedCoin"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="2dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_toRightOf="@id/plusTextView"
                             android:background="@drawable/price_background"
                             android:layoutDirection="rtl">
@@ -662,10 +632,10 @@
                             android:id="@+id/realPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_marginEnd="4dp"
                             android:layout_marginRight="4dp"
-                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
                             android:layout_toEndOf="@id/equalTextView"
                             android:layout_toRightOf="@id/equalTextView"
                             android:background="@drawable/price_background"
@@ -677,14 +647,14 @@
                         <View
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/realPrice"
-                            android:layout_alignEnd="@id/realPrice"
-                            android:layout_alignLeft="@id/realPrice"
-                            android:layout_alignRight="@id/realPrice"
                             android:layout_alignStart="@id/realPrice"
+                            android:layout_alignLeft="@id/realPrice"
                             android:layout_alignTop="@id/realPrice"
-                            android:layout_marginBottom="-10dp"
+                            android:layout_alignEnd="@id/realPrice"
+                            android:layout_alignRight="@id/realPrice"
+                            android:layout_alignBottom="@id/realPrice"
                             android:layout_marginTop="-10dp"
+                            android:layout_marginBottom="-10dp"
                             android:background="@drawable/red_diagonal_line" />
 
                         <TextView
@@ -692,12 +662,12 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginEnd="4dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="4dp"
                             android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="2dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginBottom="2dp"
                             android:background="@drawable/price_background"
                             android:gravity="center"
                             android:minWidth="60dp"

@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.webservices.buy
+package com.example.mhmdreza_j.xproject.webservice.webservices.buy
 
 import ir.sharif.vamdeh.webservices.base.MyRetrofit
 import ir.sharif.vamdeh.webservices.base.WebserviceException
