@@ -1,6 +1,6 @@
-package ir.sharif.vamdeh.webservices.base.requestProcess
+package com.example.mhmdreza_j.xproject.webservice.base.requestProcess
 
-import ir.sharif.vamdeh.webservices.base.WebserviceException
+import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
 import java.io.IOException
 
 import retrofit2.Call

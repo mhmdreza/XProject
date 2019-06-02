@@ -1,7 +1,7 @@
 package com.example.mhmdreza_j.xproject.webservice.webservices.profile
 
 import com.google.gson.annotations.SerializedName
-import ir.sharif.vamdeh.webservices.base.requestProcess.BaseResponse
+import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseResponse
 
 class ProfileResponse(
     @field: SerializedName("name")

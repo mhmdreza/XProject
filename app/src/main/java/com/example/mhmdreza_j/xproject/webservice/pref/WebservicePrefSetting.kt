@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.pref
+package com.example.mhmdreza_j.xproject.webservice.pref
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -24,12 +24,12 @@ class WebservicePrefSetting private constructor(context: Context) {
         private var instance: WebservicePrefSetting? = null
 
         fun getInstance(context: Context): WebservicePrefSetting {
-            return instance?:WebservicePrefSetting(context)
+            return instance ?: WebservicePrefSetting(context)
         }
 
         val instanceWithoutContext: WebservicePrefSetting
             get() {
-                return instance?:throw RuntimeException("Please set context first")
+                return instance ?:throw RuntimeException("Please set context first")
             }
     }
 }

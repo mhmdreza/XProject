@@ -1,13 +1,13 @@
 package com.example.mhmdreza_j.xproject.webservice
 
 import android.content.Context
-import ir.sharif.vamdeh.webservices.base.Constants.Category
-import ir.sharif.vamdeh.webservices.base.Constants.LoginType
+import com.example.mhmdreza_j.xproject.webservice.base.constants.Category
+import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
 
 import java.io.IOException
 
-import ir.sharif.vamdeh.webservices.base.WebserviceException
-import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
+import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
+import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyProcess

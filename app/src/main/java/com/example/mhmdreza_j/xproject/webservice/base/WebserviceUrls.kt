@@ -1,6 +1,6 @@
-package ir.sharif.vamdeh.webservices.base
+package com.example.mhmdreza_j.xproject.webservice.base
 
-import ir.sharif.vamdeh.webservices.base.Constants.WebserviceAdresses
+import com.example.mhmdreza_j.xproject.webservice.base.constants.WebserviceAdresses
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceRequest
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyRequest

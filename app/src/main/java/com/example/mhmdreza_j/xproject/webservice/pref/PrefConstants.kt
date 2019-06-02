@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.pref
+package com.example.mhmdreza_j.xproject.webservice.pref
 
 object PrefConstants {
     internal const val SHARED_NAME = "webservice_setting"

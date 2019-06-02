@@ -1,10 +1,8 @@
 package com.example.mhmdreza_j.xproject.webservice.webservices.profile
 
-import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileRequest
-import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
-import ir.sharif.vamdeh.webservices.base.MyRetrofit
-import ir.sharif.vamdeh.webservices.base.WebserviceException
-import ir.sharif.vamdeh.webservices.base.requestProcess.BaseProcess
+import com.example.mhmdreza_j.xproject.webservice.base.MyRetrofit
+import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
+import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseProcess
 import java.io.IOException
 
 class ProfileProcess: BaseProcess() {

@@ -1,8 +1,8 @@
 package com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance
 
-import ir.sharif.vamdeh.webservices.base.Constants.Category
-import ir.sharif.vamdeh.webservices.base.MyRetrofit
-import ir.sharif.vamdeh.webservices.base.requestProcess.BaseProcess
+import com.example.mhmdreza_j.xproject.webservice.base.constants.Category
+import com.example.mhmdreza_j.xproject.webservice.base.MyRetrofit
+import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseProcess
 
 class EntranceProcess(category: Category): BaseProcess() {
     private val request: EntranceRequest = EntranceRequest(category)

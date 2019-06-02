@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.base.Constants
+package com.example.mhmdreza_j.xproject.webservice.base.constants
 
 object WebserviceAdresses {
     const val BASE_URL = "http://xptrivia.herokuapp.com/"

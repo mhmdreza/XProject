@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.base.requestProcess
+package com.example.mhmdreza_j.xproject.webservice.base.requestProcess
 
 import com.google.gson.annotations.Expose
 

@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.webservices.base
+package com.example.mhmdreza_j.xproject.webservice.base
 
 import com.google.gson.GsonBuilder
 
@@ -6,9 +6,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
+import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 
-import ir.sharif.vamdeh.webservices.base.Constants.WebserviceAdresses.BASE_URL
+import com.example.mhmdreza_j.xproject.webservice.base.constants.WebserviceAdresses.BASE_URL
 
 object MyRetrofit {
 
