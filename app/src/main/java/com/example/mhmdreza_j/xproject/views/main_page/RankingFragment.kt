@@ -17,7 +17,6 @@ import com.example.mhmdreza_j.xproject.utils.Utils.getStringOfInt
 import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
 import com.example.mhmdreza_j.xproject.views.game.StartGameFragment
 import com.example.mhmdreza_j.xproject.views.profile.ProfileFragment
-import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

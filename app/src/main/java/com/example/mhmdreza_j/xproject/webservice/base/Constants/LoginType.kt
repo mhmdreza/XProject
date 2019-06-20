@@ -1,4 +1,4 @@
-package com.example.mhmdreza_j.xproject.webservice.base.constants
+package ir.sharif.vamdeh.webservices.base.Constants
 
 enum class LoginType(val type: String) {
     GUEST("guest"),

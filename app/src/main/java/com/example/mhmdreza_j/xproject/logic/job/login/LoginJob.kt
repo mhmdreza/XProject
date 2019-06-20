@@ -2,10 +2,10 @@ package com.example.mhmdreza_j.xproject.logic.job.login
 
 import android.util.Log
 import com.example.mhmdreza_j.xproject.application.ApplicationLoader
-import com.example.mhmdreza_j.xproject.logic.MyJobCreator.LOGIN
+import com.example.mhmdreza_j.xproject.logic.MyJobCreator.Companion.LOGIN
 import com.example.mhmdreza_j.xproject.logic.job.BaseJob
 import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
-import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
+import ir.sharif.vamdeh.webservices.base.Constants.LoginType
 import org.greenrobot.eventbus.EventBus
 
 class LoginJob : BaseJob() {
