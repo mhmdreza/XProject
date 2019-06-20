@@ -18,13 +18,15 @@ import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfilePro
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
+import com.facebook.AccessToken
 
 object WebserviceHelper {
     @Throws(IOException::class, WebserviceException::class)
-    fun login(context: Context, type: LoginType): LoginResponse {
-        val process = LoginProcess(type)
+    fun login(context: Context, type: LoginType, token: String = ""): LoginResponse {
+        val process = LoginProcess(type, token)
         val response = process.process()
         WebservicePrefSetting.getInstance(context).saveToken(response.token)
+        WebservicePrefSetting.getInstance(context).isRegister = true
         return response
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,27 +11,28 @@
         android:id="@+id/homeButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:src="@drawable/ic_home" />
 
-    <ImageView
+    <com.example.mhmdreza_j.xproject.lib.lucky_wheel.LuckyWheelView
+        android:id="@+id/luckyWheel"
         android:layout_width="360dp"
         android:layout_height="360dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@mipmap/big_spinner"/>
+        android:layout_gravity="center"
+        app:lkwBackgroundColor="#ffffff"
+        app:lkwTopTextColor="#263238"/>
 
     <TextView
         android:id="@+id/spin"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:text="23:59:50 UNTIL NEXT SPIN"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/beige"
         android:layout_width="280dp"
         android:layout_height="64dp"
-        android:background="@drawable/text_view_background"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/text_view_background"
+        android:gravity="center"
+        android:text="23:59:59 UNTIL NEXT SPIN"
+        android:textColor="@color/beige"
+        android:textSize="20sp" />
 
 </LinearLayout>

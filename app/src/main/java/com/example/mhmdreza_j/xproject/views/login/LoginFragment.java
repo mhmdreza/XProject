@@ -11,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.mhmdreza_j.xproject.R;
 import com.example.mhmdreza_j.xproject.application.ApplicationLoader;
-import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
+import com.example.mhmdreza_j.xproject.logic.job.login.LoginJob;
+import com.example.mhmdreza_j.xproject.logic.job.login.OnLoginSuccessEvent;
+import com.example.mhmdreza_j.xproject.utils.SharedPrefUtils;
+import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment;
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -21,12 +24,14 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
-public class LoginFragment extends BaseFragment {
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+public class LoginFragment extends EventListenerFragment {
     public static final String IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN";
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private boolean isOnLoginPressed = false;
-    private SharedPreferences sharedpreferences;
 
     public LoginFragment() {
     }
@@ -37,13 +42,13 @@ public class LoginFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         if (getActivity() == null) return view;
-        sharedpreferences = getActivity().getSharedPreferences(ApplicationLoader.SHARED_PREFERENCE_KEY, Context.MODE_PRIVATE);
         FacebookSdk.sdkInitialize(getContext());
         ImageView imageView = view.findViewById(R.id.facebookButton);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!isOnLoginPressed) {
+                    showLoading();
                     isOnLoginPressed = true;
                     loginButton.callOnClick();
                 }
@@ -77,11 +82,7 @@ public class LoginFragment extends BaseFragment {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         isOnLoginPressed = false;
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putBoolean(IS_USER_LOGGED_IN, true);
-                        editor.apply();
-                        nextFragment = new MainFragment();
-                        onNextPressed();
+                        loginToApp();
                     }
 
                     @Override
@@ -96,6 +97,13 @@ public class LoginFragment extends BaseFragment {
                 });
     }
 
+    private void loginToApp() {
+        hideLoading();
+        SharedPrefUtils.putBoolean(IS_USER_LOGGED_IN, true);
+        nextFragment = new MainFragment();
+        onNextPressed();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -105,12 +113,14 @@ public class LoginFragment extends BaseFragment {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor edit = sharedpreferences.edit();
-                edit.putBoolean(IS_USER_LOGGED_IN, true);
-                edit.apply();
-                nextFragment = new MainFragment();
-                onNextPressed();
+                showLoading();
+                LoginJob.Companion.schedule();
             }
         };
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(OnLoginSuccessEvent event) {
+        loginToApp();
     }
 }

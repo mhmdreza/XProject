@@ -7,17 +7,17 @@
         android:id="@+id/homeButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:src="@drawable/ic_home" />
 
     <LinearLayout
         android:id="@+id/scoreLayout"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
+        android:layout_alignTop="@id/homeButton"
         android:layout_alignBottom="@id/homeButton"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/homeButton"
         android:layout_marginEnd="16dp"
         android:layout_toEndOf="@id/homeButton"
         android:gravity="center_vertical|end"
@@ -53,6 +53,7 @@
                 android:lines="1"
                 android:paddingEnd="4dp"
                 android:text="1000"
+                android:textColor="@color/darkBlue"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -87,6 +88,7 @@
                 android:lines="1"
                 android:paddingEnd="4dp"
                 android:text="1000"
+                android:textColor="@color/darkBlue"
                 android:textSize="16sp" />
         </LinearLayout>
 

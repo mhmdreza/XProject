@@ -166,7 +166,7 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/profile_background_game"
                 android:padding="6dp"
-                android:src="@mipmap/face6" />
+                android:src="@mipmap/face0" />
         </LinearLayout>
 
     </LinearLayout>

@@ -7,12 +7,9 @@
         android:id="@+id/progressView"
         android:layout_width="125dp"
         android:layout_height="25dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignEnd="@id/seekBarThumb"
-        android:layout_alignRight="@id/seekBarThumb"
         android:layout_centerVertical="true"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
         android:background="@color/beige"
         android:layout_alignParentStart="true" />
 
@@ -27,13 +24,11 @@
         android:id="@+id/progressTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="1000"
         android:layout_alignBottom="@id/backgroundView"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@id/backgroundView"
-        android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
-        android:text="2654/4564"
         android:textColor="@color/darkBlue"
         android:textSize="18sp" />
 
@@ -43,6 +38,5 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_toEndOf="@id/progressTextView"
-        android:layout_toRightOf="@id/progressTextView"
         android:src="@drawable/ic_star" />
 </RelativeLayout>

@@ -8,7 +8,7 @@ buildscript {
         jcenter()
         maven {
             url 'https://jitpack.io'
-            }
+        }
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
@@ -26,7 +26,10 @@ allprojects {
         jcenter()
         maven {
             url 'https://jitpack.io'
-            }
+        }
+        maven {
+            url 'https://dl.bintray.com/tapsellorg/maven'
+        }
         flatDir {
             dirs 'libs'
         }

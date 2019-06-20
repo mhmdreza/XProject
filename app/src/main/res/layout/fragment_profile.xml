@@ -17,7 +17,7 @@
         android:drawableEnd="@drawable/ic_close"
         android:drawablePadding="2dp"
         android:gravity="center_vertical"
-        android:text="CLOSE"
+        android:text="@string/close"
         android:textColor="@color/beige"
         android:textSize="16sp" />
 
@@ -71,8 +71,7 @@
                         android:layout_marginTop="-5dp"
                         android:background="@drawable/score_background"
                         android:layoutDirection="rtl"
-                        android:paddingEnd="40dp"
-                        android:paddingRight="40dp">
+                        android:paddingEnd="40dp">
 
                         <ImageView
                             android:id="@+id/addCoin"
@@ -99,6 +98,7 @@
                             android:lines="1"
                             android:paddingEnd="10dp"
                             android:text="1000"
+                            android:textColor="@color/darkBlue"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -135,6 +135,7 @@
                             android:lines="1"
                             android:paddingEnd="10dp"
                             android:text="1000"
+                            android:textColor="@color/darkBlue"
                             android:textSize="18sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -144,10 +145,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face1" />
+                    android:src="@mipmap/face2" />
 
             </RelativeLayout>
 
@@ -168,18 +168,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@id/divider"
-                    android:gravity="start"
                     android:layout_alignParentStart="true"
+                    android:gravity="start"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/rankTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RANK:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="RANK:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -188,10 +188,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
-                        android:text="GAMES WON:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="GAMES WON:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -200,10 +200,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
-                        android:text="AVERAGE SCORE:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="AVERAGE SCORE:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -223,10 +223,10 @@
                         android:id="@+id/titleTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TITLE:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="TITLE:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -235,10 +235,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
-                        android:text="GAMES PLAYED:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="GAMES PLAYED:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -247,10 +247,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
-                        android:text="WON IN A ROW:"
                         android:shadowColor="@color/darkBlue"
                         android:shadowDy="5"
                         android:shadowRadius="10"
+                        android:text="WON IN A ROW:"
                         android:textColor="@color/beige"
                         android:textSize="14sp" />
 
@@ -262,10 +262,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="FRIENDS"
                 android:shadowColor="@color/darkBlue"
                 android:shadowDy="5"
                 android:shadowRadius="10"
+                android:text="@string/friends"
                 android:textColor="@color/titleTextColor"
                 android:textSize="20sp" />
 
@@ -322,10 +322,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="ACHIEVEMENTS"
                 android:shadowColor="@color/darkBlue"
                 android:shadowDy="5"
                 android:shadowRadius="10"
+                android:text="ACHIEVEMENTS"
                 android:textColor="@color/titleTextColor"
                 android:textSize="20sp" />
 

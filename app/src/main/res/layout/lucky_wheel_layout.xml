@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    android:layout_width="360dp"
+    android:layout_height="360dp"
+    android:foreground="@mipmap/wheel_frame2">
+
+    <com.example.mhmdreza_j.xproject.lib.lucky_wheel.PieView
+        android:id="@+id/pieView"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="90dp" />
+
+    <ImageView
+        android:id="@+id/cursorView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_horizontal" />
+</FrameLayout>

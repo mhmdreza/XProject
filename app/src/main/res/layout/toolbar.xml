@@ -4,28 +4,17 @@
     android:layout_width="wrap_content"
     android:layout_height="80dp">
 
-    <ImageView
-        android:id="@+id/starImageView"
+    <TextView
+        android:id="@+id/levelTextView"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="12dp"
-        android:contentDescription="starImageView"
-        android:src="@drawable/ic_star"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/starImageView"
-        android:layout_alignEnd="@id/starImageView"
-        android:layout_alignLeft="@id/starImageView"
-        android:layout_alignRight="@id/starImageView"
-        android:layout_alignStart="@id/starImageView"
-        android:layout_alignTop="@id/starImageView"
         android:gravity="center"
-        android:text="123" />
+        android:background="@drawable/ic_star"
+        android:text="1"
+        android:textColor="@color/darkBlue" />
 
     <LinearLayout
         android:id="@+id/scoreLayout"
@@ -61,11 +50,13 @@
                 android:src="@drawable/ic_coin" />
 
             <TextView
+                android:id="@+id/coinTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:lines="1"
                 android:text="1000"
+                android:textColor="@color/darkBlue"
                 android:textSize="14dp" />
         </LinearLayout>
 
@@ -94,11 +85,13 @@
                 android:src="@drawable/ic_gem" />
 
             <TextView
+                android:id="@+id/gemTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:lines="1"
                 android:text="1000"
+                android:textColor="@color/darkBlue"
                 android:textSize="14dp" />
         </LinearLayout>
     </LinearLayout>
@@ -106,8 +99,8 @@
     <ImageView
         android:id="@+id/profileImageView"
         android:layout_width="72dp"
-        android:layout_centerVertical="true"
         android:layout_height="72dp"
+        android:layout_centerVertical="true"
         android:layout_marginStart="12dp"
         android:background="@drawable/profile_background"
         android:contentDescription="profileImageView"

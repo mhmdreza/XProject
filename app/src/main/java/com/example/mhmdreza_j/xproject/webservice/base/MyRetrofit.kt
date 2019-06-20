@@ -1,5 +1,6 @@
 package com.example.mhmdreza_j.xproject.webservice.base
 
+import android.util.Log
 import com.google.gson.GsonBuilder
 
 import okhttp3.OkHttpClient
@@ -14,10 +15,9 @@ object MyRetrofit {
 
     var webserviceUrls: WebserviceUrls = getUrls()
 
-    private val token: String
+    val token: String
         get() {
-            val key = WebservicePrefSetting.instanceWithoutContext.token
-            return "token $key"
+            return WebservicePrefSetting.instanceWithoutContext.token ?: ""
         }
 
 
@@ -27,12 +27,16 @@ object MyRetrofit {
                 .create()
 
         val builder = OkHttpClient.Builder()
+        Log.d("QWERTY MyRetrofit3: ", token)
 
-        addLogginInterceptor(builder)
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        builder.addInterceptor(interceptor)
         addAuthHeader(builder)
 
         val client = builder.build()
 
+        Log.d("QWERTY MyRetrofit4: ", token)
 
         val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -49,12 +53,14 @@ object MyRetrofit {
     }
 
     private fun addAuthHeader(client: OkHttpClient.Builder) {
+        Log.d("QWERTY MyRetrofit2: ", "" + WebservicePrefSetting.instanceWithoutContext.isRegister)
         if (WebservicePrefSetting.instanceWithoutContext.isRegister) {
+            Log.d("QWERTY MyRetrofit2: ", token)
             client.addInterceptor { chain ->
                 val original = chain.request()
 
+                Log.d("QWERTY MyRetrofit1: ", token)
                 val request = original.newBuilder()
-
                         .addHeader("Authorization", "JWT $token")
                         .build()
 

@@ -24,7 +24,10 @@ class WebservicePrefSetting private constructor(context: Context) {
         private var instance: WebservicePrefSetting? = null
 
         fun getInstance(context: Context): WebservicePrefSetting {
-            return instance ?: WebservicePrefSetting(context)
+            if (instance == null){
+                instance = WebservicePrefSetting(context)
+            }
+            return instance!!
         }
 
         val instanceWithoutContext: WebservicePrefSetting

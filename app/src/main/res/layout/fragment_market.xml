@@ -7,101 +7,10 @@
     android:orientation="vertical"
     tools:context=".views.market.MarketFragment">
 
-    <RelativeLayout
+    <include
+        layout="@layout/score_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/homeButton"
-            android:layout_width="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_home" />
-
-        <LinearLayout
-            android:id="@+id/scoreLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_alignBottom="@id/homeButton"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/homeButton"
-            android:layout_marginEnd="16dp"
-            android:layout_toEndOf="@id/homeButton"
-            android:gravity="center_vertical|end"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="125dp"
-                android:layout_height="24dp"
-                android:background="@drawable/score_background"
-                android:layoutDirection="rtl">
-
-                <ImageView
-                    android:id="@+id/addCoin"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="-2dp"
-                    android:background="@drawable/score_background"
-                    android:gravity="center"
-                    android:src="@drawable/ic_plus" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:src="@drawable/ic_coin" />
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end|center_vertical"
-                    android:lines="1"
-                    android:paddingEnd="4dp"
-                    android:text="1000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="125dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/score_background"
-                android:layoutDirection="rtl">
-
-                <ImageView
-                    android:id="@+id/addGem"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="-2dp"
-                    android:background="@drawable/score_background"
-                    android:gravity="center"
-                    android:src="@drawable/ic_plus" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:src="@drawable/ic_gem" />
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end|center_vertical"
-                    android:lines="1"
-                    android:paddingEnd="4dp"
-                    android:text="1000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"

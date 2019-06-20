@@ -21,6 +21,9 @@ import com.facebook.FacebookActivity;
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 
+import ir.tapsell.sdk.bannerads.TapsellBannerType;
+import ir.tapsell.sdk.bannerads.TapsellBannerView;
+
 import static com.example.mhmdreza_j.xproject.utils.UIUtils.dp;
 import static com.example.mhmdreza_j.xproject.views.game.QuestionFragment.Mode.GREEN;
 import static com.example.mhmdreza_j.xproject.views.game.QuestionFragment.Mode.YELLOW;
@@ -43,6 +46,8 @@ public class FinishGameFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_finish_game, container, false);
+        TapsellBannerView bannerView = view.findViewById(R.id.banner);
+        bannerView.loadAd(getContext(), "5d002baadbafbf0001230566", TapsellBannerType.BANNER_300x250);
         final LinearLayout questionLayout = view.findViewById(R.id.questionLayout);
         if (views.size() == 0){
             for (int i = 0; i < 10; i++) {

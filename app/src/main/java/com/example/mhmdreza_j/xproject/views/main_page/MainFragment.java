@@ -1,8 +1,6 @@
 package com.example.mhmdreza_j.xproject.views.main_page;
 
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,9 +8,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.mhmdreza_j.xproject.lib.ah_bottom.*;
 
 import com.example.mhmdreza_j.xproject.R;
+import com.example.mhmdreza_j.xproject.lib.ah_bottom.AHBottomNavigation;
+import com.example.mhmdreza_j.xproject.lib.ah_bottom.AHBottomNavigationItem;
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment;
 import com.example.mhmdreza_j.xproject.views.coin.CoinFragment;
 import com.example.mhmdreza_j.xproject.views.market.MarketFragment;
