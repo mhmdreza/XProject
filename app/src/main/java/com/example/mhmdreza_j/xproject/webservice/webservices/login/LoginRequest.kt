@@ -8,4 +8,4 @@ import com.google.gson.annotations.Expose
 class LoginRequest(@field:SerializedName("login_type") @Expose
                    private val type: String,
                    @field:SerializedName("access_token") @Expose
-                   private val access_token: String = "") : BaseRequest()
+                   private val access_token: String) : BaseRequest()

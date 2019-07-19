@@ -32,7 +32,6 @@ import java.util.List;
 import java.util.Random;
 
 
-
 /**
  * Created by kiennguyen on 11/5/16.
  */
@@ -155,15 +154,6 @@ public class PieView extends View {
         invalidate();
     }
 
-    private void drawPieBackgroundWithBitmap(Canvas canvas, Bitmap bitmap) {
-        canvas.drawBitmap(bitmap, null, new Rect(mPadding / 2, mPadding / 2,
-                getMeasuredWidth() - mPadding / 2,
-                getMeasuredHeight() - mPadding / 2), null);
-    }
-
-    /**
-     * @param canvas
-     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -207,7 +197,7 @@ public class PieView extends View {
             tmpAngle += sweepAngle;
         }
 
-        if (drawableCenterImage != null){
+        if (drawableCenterImage != null) {
             drawCenterImage(canvas, drawableCenterImage);
         }
     }
@@ -220,10 +210,6 @@ public class PieView extends View {
         canvas.drawCircle(mCenter, mCenter, mCenter - 5, mBackgroundPaint);
     }
 
-    /**
-     * @param widthMeasureSpec
-     * @param heightMeasureSpec
-     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -238,11 +224,6 @@ public class PieView extends View {
         setMeasuredDimension(width, width);
     }
 
-    /**
-     * @param canvas
-     * @param tmpAngle
-     * @param bitmap
-     */
     private void drawImage(Canvas canvas, float tmpAngle, Bitmap bitmap) {
         int imgWidth = mRadius / mLuckyItemList.size();
 
@@ -271,12 +252,6 @@ public class PieView extends View {
     }
 
 
-    /**
-     * @param canvas
-     * @param tmpAngle
-     * @param sweepAngle
-     * @param mStr
-     */
     private void drawTopText(Canvas canvas, float tmpAngle, float sweepAngle, String mStr, int backgroundColor) {
         Path path = new Path();
         path.addArc(mRange, tmpAngle, sweepAngle);
@@ -297,12 +272,6 @@ public class PieView extends View {
     }
 
 
-    /**
-     * @param canvas
-     * @param tmpAngle
-     * @param mStr
-     * @param backgroundColor
-     */
     private void drawSecondaryText(Canvas canvas, float tmpAngle, String mStr, int backgroundColor) {
         canvas.save();
         int arraySize = mLuckyItemList.size();
@@ -338,7 +307,11 @@ public class PieView extends View {
      * @return
      */
     private float getAngleOfIndexTarget(int index) {
-        return (360f / mLuckyItemList.size()) * index;
+        float pieDegree = 360f / mLuckyItemList.size();
+        Random random = new Random();
+        boolean b = random.nextBoolean();
+        float diff = random.nextInt() % (pieDegree / 2);
+        return b ? pieDegree * index + diff : pieDegree * index - diff;
     }
 
     /**

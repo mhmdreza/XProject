@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
@@ -34,10 +33,9 @@ public class AHBottomNavigationBehavior<V extends View> extends VerticalScrollin
     private ObjectAnimator translationObjectAnimator;
     private TabLayout mTabLayout;
     private Snackbar.SnackbarLayout snackbarLayout;
-    private FloatingActionButton floatingActionButton;
-    private int mSnackbarHeight = -1, navigationBarHeight = 0;
-    private boolean fabBottomMarginInitialized = false;
-    private float targetOffset = 0, fabTargetOffset = 0, fabDefaultBottomMargin = 0, snackBarY = 0;
+    private int mSnackbarHeight = -1;
+    private float targetOffset = 0;
+    private float snackBarY = 0;
     private boolean behaviorTranslationEnabled = true;
     private AHBottomNavigation.OnNavigationPositionListener navigationPositionListener;
 
@@ -51,7 +49,6 @@ public class AHBottomNavigationBehavior<V extends View> extends VerticalScrollin
     public AHBottomNavigationBehavior(boolean behaviorTranslationEnabled, int navigationBarHeight) {
         super();
         this.behaviorTranslationEnabled = behaviorTranslationEnabled;
-        this.navigationBarHeight = navigationBarHeight;
     }
 
     public AHBottomNavigationBehavior(Context context, AttributeSet attrs) {
@@ -241,7 +238,6 @@ public class AHBottomNavigationBehavior<V extends View> extends VerticalScrollin
      */
     public void setBehaviorTranslationEnabled(boolean behaviorTranslationEnabled, int navigationBarHeight) {
         this.behaviorTranslationEnabled = behaviorTranslationEnabled;
-        this.navigationBarHeight = navigationBarHeight;
     }
 
     /**

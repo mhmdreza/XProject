@@ -4,6 +4,7 @@ package com.example.mhmdreza_j.xproject.views.wheel_of_furtune
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat.getColor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,9 @@ import com.example.mhmdreza_j.xproject.lib.lucky_wheel.model.LuckyItem
 import com.example.mhmdreza_j.xproject.utils.LAST_WHEEL_ROTATE
 import com.example.mhmdreza_j.xproject.utils.SharedPrefUtils
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
+import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
-import com.example.mhmdreza_j.xproject.views.main_page.MainFragment.RANKING_POSITION
+import com.example.mhmdreza_j.xproject.views.main_page.RANKING_POSITION
 import java.lang.System.currentTimeMillis
 import java.util.*
 
@@ -26,6 +28,7 @@ import java.util.*
 class WheelOfFortuneFragment : BaseFragment() {
 
     private var countDownTimer: CountDownTimer? = null
+    private lateinit var mainFragment: MainFragment
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +37,7 @@ class WheelOfFortuneFragment : BaseFragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_wheel_of_fortune, container, false)
-
+        mainFragment = parentFragment as MainFragment
         initViews(view)
         return view
     }
@@ -49,20 +52,25 @@ class WheelOfFortuneFragment : BaseFragment() {
             luckyItem.topText = "Item $i"
             luckyItem.icon = if (i % 2 == 0) R.drawable.ic_coin else R.drawable.ic_gem
             val color = if (i % 2 == 0) R.color.beige else R.color.titleTextColor
-            luckyItem.color = resources.getColor(color)
+            luckyItem.color = getColor(view.context, color)
             data.add(luckyItem)
         }
 
         val luckyWheelView = view.findViewById<LuckyWheelView>(R.id.luckyWheel)
         luckyWheelView.setData(data)
-        luckyWheelView.setRound(5)
+        luckyWheelView.setRound(13)
+        luckyWheelView.setLuckyRoundItemSelectedListener {
+            mainFragment.enableBottomNavigation(true)
+        }
         luckyWheelView.isTouchEnabled = false
 
         val spin = view.findViewById<TextView>(R.id.spin)
         spin.setOnClickListener {
+            mainFragment.enableBottomNavigation(false)
             saveCurrentTime()
             luckyWheelView.startLuckyWheelWithRandomTarget()
             updateTextView(spin)
+            (activity as MainActivity).startWheelMusic()
         }
         updateTextView(spin)
     }
@@ -112,7 +120,6 @@ class WheelOfFortuneFragment : BaseFragment() {
 
     override fun onBackPressed() {
         if (activity == null) return
-        val parentFragment = this.parentFragment as MainFragment
-        parentFragment.navigationView.performOnClick(RANKING_POSITION)
+        this.parentFragment!!.navigationView.performOnClick(RANKING_POSITION)
     }
 }// Required empty public constructor

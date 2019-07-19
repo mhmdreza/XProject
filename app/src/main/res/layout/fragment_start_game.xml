@@ -67,4 +67,14 @@
         android:textColor="@color/beige"
         android:textSize="24sp" />
 
+
+    <ir.tapsell.sdk.bannerads.TapsellBannerView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        app:tapsell_banner_type="banner_300x250"
+        app:tapsell_zone_id="5d002af20e22b70001f1bf06" />
+
 </LinearLayout>

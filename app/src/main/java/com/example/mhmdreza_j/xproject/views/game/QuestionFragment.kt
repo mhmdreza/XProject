@@ -36,7 +36,7 @@ class QuestionFragment : BaseFragment() {
 
         val rootLayout = view.findViewById<FrameLayout>(R.id.rootLayout)
 
-        val layout = FrameLayout.LayoutParams(dp(30f, context), dp(30f, context))
+        val layout = FrameLayout.LayoutParams(dp(30f, rootLayout.context), dp(30f, rootLayout.context))
         layout.setMargins(left, top, 0, 0)
         val v = View(context)
         v.setBackgroundResource(if (mode == Mode.YELLOW) R.drawable.question_yellow else R.drawable.question_green)

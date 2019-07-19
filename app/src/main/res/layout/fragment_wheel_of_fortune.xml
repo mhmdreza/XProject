@@ -21,6 +21,7 @@
         android:layout_height="360dp"
         android:layout_gravity="center"
         app:lkwBackgroundColor="#ffffff"
+        app:lkwCenterImage="@drawable/profile_background"
         app:lkwTopTextColor="#263238"/>
 
     <TextView

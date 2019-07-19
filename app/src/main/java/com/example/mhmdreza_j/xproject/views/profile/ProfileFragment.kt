@@ -28,16 +28,16 @@ import org.greenrobot.eventbus.ThreadMode
 
 class ProfileFragment : EventListenerFragment() {
 
-    private var coinTextView: TextView? = null
-    private var gemTextView: TextView? = null
-    private var profileImageView: ImageView? = null
-    private var gamesWonTextView: TextView? = null
-    private var rankTextView: TextView? = null
-    private var averageScoreTextView: TextView? = null
-    private var wonInARowScoreTextView: TextView? = null
-    private var gamesPlayedTextView: TextView? = null
-    private var titleTextView: TextView? = null
-    private var progressTextView: TextView? = null
+    private lateinit var coinTextView: TextView
+    private lateinit var gemTextView: TextView
+    private lateinit var profileImageView: ImageView
+    private lateinit var gamesWonTextView: TextView
+    private lateinit var rankTextView: TextView
+    private lateinit var averageScoreTextView: TextView
+    private lateinit var wonInARowScoreTextView: TextView
+    private lateinit var gamesPlayedTextView: TextView
+    private lateinit var titleTextView: TextView
+    private lateinit var progressTextView: TextView
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -98,22 +98,22 @@ class ProfileFragment : EventListenerFragment() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: OnProfileJobSuccessEvent) {
-        val profile = event.profile ?: return
+        val profile = event.profile
         cacheProfile(profile)
         setProfileData(profile)
     }
 
     private fun setProfileData(profile: ProfileResponse) {
-        coinTextView!!.text = getStringOfInt(profile.coins)
-        gemTextView!!.text = getStringOfInt(profile.gem)
+        coinTextView.text = getStringOfInt(profile.coins)
+        gemTextView.text = getStringOfInt(profile.gem)
         UIUtils.setProfileImage(profileImageView, getInt(profile.avatar))
-        gamesWonTextView!!.text = getFormattedString(R.string.gamesWon, profile.wonNumber)
-        rankTextView!!.text = getFormattedString(R.string.rank, profile.level)
-        averageScoreTextView!!.text = getFormattedString(R.string.avgScore, profile.averageScore)
-        wonInARowScoreTextView!!.text = getFormattedString(R.string.wonInARow, profile.winStrike)
-        gamesPlayedTextView!!.text = getFormattedString(R.string.gamePlayed, profile.gameNumber)
-        progressTextView!!.text = getStringOfInt(profile.experience)
-        titleTextView!!.text = String.format("%s %s", resources.getString(R.string.title), profile.name)
+        gamesWonTextView.text = getFormattedString(R.string.gamesWon, profile.wonNumber)
+        rankTextView.text = getFormattedString(R.string.rank, profile.level)
+        averageScoreTextView.text = getFormattedString(R.string.avgScore, profile.averageScore)
+        wonInARowScoreTextView.text = getFormattedString(R.string.wonInARow, profile.winStrike)
+        gamesPlayedTextView.text = getFormattedString(R.string.gamePlayed, profile.gameNumber)
+        progressTextView.text = getStringOfInt(profile.experience)
+        titleTextView.text = String.format("%s %s", resources.getString(R.string.title), profile.name)
     }
 
     private fun cacheProfile(profile: ProfileResponse) {
@@ -126,7 +126,7 @@ class ProfileFragment : EventListenerFragment() {
         SharedPrefUtils.putInt(SP_WIN_STRIKE, profile.winStrike ?: 0)
         SharedPrefUtils.putInt(SP_GAME_NUM, profile.gameNumber ?: 0)
         SharedPrefUtils.putInt(SP_EXPERIENCE, profile.experience ?: 0)
-        SharedPrefUtils.putString(SP_NAME, profile.name)
+        SharedPrefUtils.putString(SP_NAME, profile.name ?: "")
     }
 
     private fun getFormattedString(resID: Int, number: Int?): String {

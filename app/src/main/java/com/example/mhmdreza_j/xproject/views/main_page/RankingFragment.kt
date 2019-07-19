@@ -74,7 +74,7 @@ class RankingFragment : EventListenerFragment() {
         profileImageView.setOnClickListener {
             val composer = Blurry.with(view.context)
                     .color(R.color.dark)
-                    .capture(parentFragment.view)
+                    .capture(parentFragment!!.view)
             BlurryUtil.saveProfileComposer(composer)
             nextFragment = ProfileFragment()
             onNextPressed()

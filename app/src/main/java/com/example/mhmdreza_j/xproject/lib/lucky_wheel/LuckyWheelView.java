@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.mhmdreza_j.xproject.R;
@@ -35,7 +34,6 @@ public class LuckyWheelView extends RelativeLayout implements PieView.PieRotateL
     private Drawable mCursorImage;
 
     private PieView pieView;
-    private ImageView ivCursorView;
 
     private LuckyRoundItemSelectedListener mLuckyRoundItemSelectedListener;
 
@@ -87,7 +85,6 @@ public class LuckyWheelView extends RelativeLayout implements PieView.PieRotateL
         FrameLayout frameLayout = (FrameLayout) inflater.inflate(R.layout.lucky_wheel_layout, this, false);
 
         pieView = frameLayout.findViewById(R.id.pieView);
-        ivCursorView = frameLayout.findViewById(R.id.cursorView);
 
         pieView.setPieRotateListener(this);
         pieView.setPieBackgroundColor(mBackgroundColor);
@@ -101,12 +98,10 @@ public class LuckyWheelView extends RelativeLayout implements PieView.PieRotateL
         if (mTextColor != 0)
             pieView.setPieTextColor(mTextColor);
 
-        ivCursorView.setImageDrawable(mCursorImage);
-
         addView(frameLayout);
     }
 
-    
+
     public boolean isTouchEnabled() {
         return pieView.isTouchEnabled();
     }
@@ -120,42 +115,22 @@ public class LuckyWheelView extends RelativeLayout implements PieView.PieRotateL
     public boolean dispatchTouchEvent(MotionEvent ev) {
         //This is to control that the touch events triggered are only going to the PieView
         for (int i = 0; i < getChildCount(); i++) {
-            if (isPielView(getChildAt(i))) {
+            if (isPieView(getChildAt(i))) {
                 return super.dispatchTouchEvent(ev);
             }
         }
         return false;
     }
 
-    private boolean isPielView(View view) {
+    private boolean isPieView(View view) {
         if (view instanceof ViewGroup) {
             for (int i = 0; i < getChildCount(); i++) {
-                if (isPielView(((ViewGroup) view).getChildAt(i))) {
+                if (isPieView(((ViewGroup) view).getChildAt(i))) {
                     return true;
                 }
             }
         }
         return view instanceof PieView;
-    }
-
-    public void setLuckyWheelBackgrouldColor(int color) {
-        pieView.setPieBackgroundColor(color);
-    }
-
-    public void setLuckyWheelCursorImage(int drawable) {
-        ivCursorView.setBackgroundResource(drawable);
-    }
-
-    public void setLuckyWheelCenterImage(Drawable drawable) {
-        pieView.setPieCenterImage(drawable);
-    }
-
-    public void setBorderColor(int color) {
-        pieView.setBorderColor(color);
-    }
-
-    public void setLuckyWheelTextColor(int color) {
-        pieView.setPieTextColor(color);
     }
 
     /**
@@ -170,13 +145,6 @@ public class LuckyWheelView extends RelativeLayout implements PieView.PieRotateL
      */
     public void setRound(int numberOfRound) {
         pieView.setRound(numberOfRound);
-    }
-
-    /**
-     * @param fixedNumber
-     */
-    public void setPredeterminedNumber(int fixedNumber) {
-        pieView.setPredeterminedNumber(fixedNumber);
     }
 
     public void startLuckyWheelWithTargetIndex(int index) {

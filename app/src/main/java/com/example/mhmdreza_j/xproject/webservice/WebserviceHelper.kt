@@ -1,12 +1,9 @@
 package com.example.mhmdreza_j.xproject.webservice
 
 import android.content.Context
+import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
 import com.example.mhmdreza_j.xproject.webservice.base.constants.Category
 import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
-
-import java.io.IOException
-
-import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
@@ -18,9 +15,10 @@ import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfilePro
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
-import com.facebook.AccessToken
+import java.io.IOException
 
 object WebserviceHelper {
+
     @Throws(IOException::class, WebserviceException::class)
     fun login(context: Context, type: LoginType, token: String = ""): LoginResponse {
         val process = LoginProcess(type, token)
