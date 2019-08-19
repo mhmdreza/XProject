@@ -13,8 +13,6 @@ import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.logic.job.profile.GetProfileJob
 import com.example.mhmdreza_j.xproject.logic.job.profile.OnProfileJobSuccessEvent
 import com.example.mhmdreza_j.xproject.utils.*
-import com.example.mhmdreza_j.xproject.utils.Utils.getInt
-import com.example.mhmdreza_j.xproject.utils.Utils.getStringOfInt
 import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
@@ -106,7 +104,7 @@ class ProfileFragment : EventListenerFragment() {
     private fun setProfileData(profile: ProfileResponse) {
         coinTextView.text = getStringOfInt(profile.coins)
         gemTextView.text = getStringOfInt(profile.gem)
-        UIUtils.setProfileImage(profileImageView, getInt(profile.avatar))
+        setProfileImage(profileImageView, getInt(profile.avatar))
         gamesWonTextView.text = getFormattedString(R.string.gamesWon, profile.wonNumber)
         rankTextView.text = getFormattedString(R.string.rank, profile.level)
         averageScoreTextView.text = getFormattedString(R.string.avgScore, profile.averageScore)

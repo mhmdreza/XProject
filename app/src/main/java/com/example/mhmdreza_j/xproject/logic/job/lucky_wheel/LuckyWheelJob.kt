@@ -1,5 +1,6 @@
-package com.example.mhmdreza_j.xproject.logic.job.record
+package com.example.mhmdreza_j.xproject.logic.job.lucky_wheel
 
+import com.example.mhmdreza_j.xproject.logic.LUCKY_WHEEL
 import com.example.mhmdreza_j.xproject.logic.MAIN_RECORD
 import com.example.mhmdreza_j.xproject.logic.job.BaseJob
 import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
@@ -7,12 +8,12 @@ import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
 import org.greenrobot.eventbus.EventBus
 import java.io.IOException
 
-class GetRecordJob : BaseJob() {
+class LuckyWheelJob : BaseJob() {
 
     override fun onRunJob(params: Params): Result {
         try {
-            val record = WebserviceHelper.record()
-            EventBus.getDefault().post(OnRecordJobSuccessEvent(record))
+            val response = WebserviceHelper.luckyWheel()
+            EventBus.getDefault().post(OnLuckyWheelJobSuccessEvent(response))
             return Result.SUCCESS
         } catch (e: IOException) {
             e.printStackTrace()
@@ -26,7 +27,7 @@ class GetRecordJob : BaseJob() {
     companion object {
 
         fun schedule() {
-            scheduleImmediateJob(MAIN_RECORD)
+            scheduleImmediateJob(LUCKY_WHEEL)
         }
     }
 }

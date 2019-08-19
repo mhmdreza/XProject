@@ -1,15 +1,15 @@
 package com.example.mhmdreza_j.xproject.views.game
 
 
+import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.utils.*
+import com.example.mhmdreza_j.xproject.utils.getUsername
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.StartGameModel
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
@@ -19,38 +19,33 @@ import io.socket.client.Socket
 import ir.tapsell.sdk.bannerads.TapsellBannerType
 import ir.tapsell.sdk.bannerads.TapsellBannerView
 import org.json.JSONObject
-import java.util.*
 
+const val CATEGORY = "CATEGORY"
 
-/**
- * A simple [Fragment] subclass.
- */
 class StartGameFragment : BaseFragment() {
     private var socket: Socket? = null
+    private var category: Int = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_start_game, container, false)
+        category = arguments?.getInt(CATEGORY, 1) ?: 1
         initViews(view)
         val bannerView = view.findViewById<TapsellBannerView>(R.id.banner)
         bannerView.loadAd(context, START_GAME_KEY, TapsellBannerType.BANNER_300x250)
-        initSocket()
+        initSocket(view.context)
         return view
     }
 
-    private fun initSocket() {
+    private fun initSocket(context: Context) {
         socket = (getMainActivity()?.startSocket() ?: return)
         val jsonObject = JSONObject()
-        jsonObject.put("username", "test${Random().nextInt(1000)}")
-        jsonObject.put("category", 2)
-        socket!!.emit(MATCH_REQUEST,
-                jsonObject.toString())
-        toastMessage("MATCH_REQUEST")
+        jsonObject.put("username", getUsername(context))
+        jsonObject.put("category", category)
+        socket!!.emit(MATCH_REQUEST, jsonObject)
         socket!!.on(MATCH_REQUEST_ANSWER) { args ->
-            toastMessage("MATCH_REQUEST_ANSWER + ${args[0]}")
             val json = args[0] as JSONObject
             if (json.has(MATCH_REQUEST_STATE) && json.getString(MATCH_REQUEST_STATE) == STATE_PROCESSING) {
                 activity?.runOnUiThread {
@@ -60,32 +55,22 @@ class StartGameFragment : BaseFragment() {
         }
 
         socket!!.on(MATCH_OPPONENT_READY) { args ->
-            toastMessage("MATCH_OPPONENT_READY")
             activity?.runOnUiThread {
                 getMainActivity()!!.hideLoading()
             }
-            val json = args[0] as String
-            val startGame = Gson().fromJson(json, StartGameModel::class.java)
+            val json = args[0] as JSONObject
+            Log.d("MATCH_OPPONENT_READY", json.toString())
+            val startGame = Gson().fromJson(json.toString(), StartGameModel::class.java)
             goToNextPage(startGame)
         }
 
     }
 
-    private fun toastMessage(message: String) {
-        activity?.runOnUiThread {
-            Toast.makeText(activity, message, LENGTH_SHORT).show()
-        }
-    }
-
     private fun initViews(view: View) {
         view.findViewById<View>(R.id.returnView).setOnClickListener { onBackPressed() }
-        view.findViewById<View>(R.id.prizeTextView).setOnClickListener {
-            goToNextPage()
-        }
     }
 
     private fun goToNextPage(startGameModel: StartGameModel? = null) {
-        toastMessage("goToNextPage")
         val gameFragment = GameFragment()
         if (startGameModel != null) {
             val bundle = Bundle()
@@ -98,7 +83,7 @@ class StartGameFragment : BaseFragment() {
 
     override fun onBackPressed() {
         if (activity == null) return
-        socket?.disconnect()
+        socket!!.disconnect()
         (activity as MainActivity).startFragment(MainFragment())
     }
 

@@ -16,7 +16,7 @@
         android:src="@drawable/ic_home" />
 
     <com.example.mhmdreza_j.xproject.lib.lucky_wheel.LuckyWheelView
-        android:id="@+id/luckyWheel"
+        android:id="@+id/luckyWheelView"
         android:layout_width="360dp"
         android:layout_height="360dp"
         android:layout_gravity="center"

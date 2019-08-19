@@ -104,7 +104,6 @@
         android:layout_marginStart="12dp"
         android:background="@drawable/profile_background"
         android:contentDescription="profileImageView"
-        android:src="@mipmap/face3"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>

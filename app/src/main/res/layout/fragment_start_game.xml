@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/play_background"
     android:orientation="vertical"
@@ -70,9 +70,11 @@
 
     <ir.tapsell.sdk.bannerads.TapsellBannerView
         android:id="@+id/banner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         app:tapsell_banner_type="banner_300x250"
         app:tapsell_zone_id="5d002af20e22b70001f1bf06" />

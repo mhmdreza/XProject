@@ -2,15 +2,14 @@ package com.example.mhmdreza_j.xproject.webservice
 
 import android.content.Context
 import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
-import com.example.mhmdreza_j.xproject.webservice.base.constants.Category
 import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
-import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceProcess
-import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyWheelProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyWheelResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordProcess
@@ -38,6 +37,6 @@ object WebserviceHelper {
     fun buy(cost: Int): BuyResponse = BuyProcess(cost).process()
 
     @Throws(IOException::class, WebserviceException::class)
-    fun enterBattle(category: Category): EntranceResponse = EntranceProcess(category).process()
+    fun luckyWheel(): LuckyWheelResponse = LuckyWheelProcess().process()
 
 }

@@ -1,31 +1,31 @@
 package com.example.mhmdreza_j.xproject.webservice.base
 
-import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
-import com.example.mhmdreza_j.xproject.webservice.base.constants.WebserviceAdresses
-import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceRequest
-import com.example.mhmdreza_j.xproject.webservice.webservices.battleEntrance.EntranceResponse
+import com.example.mhmdreza_j.xproject.webservice.base.constants.*
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyRequest
 import com.example.mhmdreza_j.xproject.webservice.webservices.buy.BuyResponse
-import retrofit2.Call
 import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginRequest
 import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyWheelResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
-import retrofit2.http.*
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface WebserviceUrls {
-    @POST(WebserviceAdresses.LOGIN)
+    @POST(LOGIN)
     fun login(@Body request: LoginRequest): Call<LoginResponse>
 
-    @GET(WebserviceAdresses.RECORD)
+    @GET(RECORD)
     fun record(): Call<RecordResponse>
 
-    @GET(WebserviceAdresses.PROFILE)
+    @GET(PROFILE)
     fun profile(): Call<ProfileResponse>
 
-    @GET(WebserviceAdresses.ENTRANCE)
-    fun enterBattle(@Body request: EntranceRequest): Call<EntranceResponse>
-
-    @GET(WebserviceAdresses.BUY)
+    @GET(BUY)
     fun buy(@Body request: BuyRequest): Call<BuyResponse>
+
+    @GET(LUCKY_WHEEL)
+    fun luckyWheel(): Call<LuckyWheelResponse>
 }

@@ -8,16 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-
 import com.example.mhmdreza_j.xproject.R
-import com.example.mhmdreza_j.xproject.lib.blurry.Blurry
 import com.example.mhmdreza_j.xproject.utils.BlurryUtil
+import com.example.mhmdreza_j.xproject.utils.dp
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
-import com.facebook.FacebookActivity
 
-import com.example.mhmdreza_j.xproject.utils.UIUtils.dp
 
 /**
  * A simple [Fragment] subclass.

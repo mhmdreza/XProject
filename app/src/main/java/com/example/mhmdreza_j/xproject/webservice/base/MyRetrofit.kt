@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 
-import com.example.mhmdreza_j.xproject.webservice.base.constants.WebserviceAdresses.BASE_URL
+import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
 
 object MyRetrofit {
 
@@ -17,7 +17,7 @@ object MyRetrofit {
 
     val token: String
         get() {
-            return WebservicePrefSetting.instanceWithoutContext.token ?: ""
+            return WebservicePrefSetting.instanceWithoutContext.token
         }
 
 
@@ -25,19 +25,12 @@ object MyRetrofit {
         val gson = GsonBuilder()
                 .setLenient()
                 .create()
-
         val builder = OkHttpClient.Builder()
-        Log.d("QWERTY MyRetrofit3: ", token)
-
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         builder.addInterceptor(interceptor)
         addAuthHeader(builder)
-
         val client = builder.build()
-
-        Log.d("QWERTY MyRetrofit4: ", token)
-
         val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -53,15 +46,11 @@ object MyRetrofit {
     }
 
     private fun addAuthHeader(client: OkHttpClient.Builder) {
-        Log.d("QWERTY MyRetrofit2: ", "" + WebservicePrefSetting.instanceWithoutContext.isRegister)
         if (WebservicePrefSetting.instanceWithoutContext.isRegister) {
-            Log.d("QWERTY MyRetrofit2: ", token)
             client.addInterceptor { chain ->
                 val original = chain.request()
-
-                Log.d("QWERTY MyRetrofit1: ", token)
                 val request = original.newBuilder()
-                        .addHeader("Authorization", "JWT $token")
+                        .addHeader("Authorization", "Bearer $token")
                         .build()
 
                 chain.proceed(request)

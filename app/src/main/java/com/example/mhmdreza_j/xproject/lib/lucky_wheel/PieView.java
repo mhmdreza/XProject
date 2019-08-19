@@ -171,9 +171,9 @@ public class PieView extends View {
 
         for (int i = 0; i < mLuckyItemList.size(); i++) {
 
-            if (mLuckyItemList.get(i).color != 0) {
+            if (mLuckyItemList.get(i).getColor() != 0) {
                 mArcPaint.setStyle(Paint.Style.FILL);
-                mArcPaint.setColor(mLuckyItemList.get(i).color);
+                mArcPaint.setColor(mLuckyItemList.get(i).getColor());
                 canvas.drawArc(mRange, tmpAngle, sweepAngle, true, mArcPaint);
             }
 
@@ -184,16 +184,16 @@ public class PieView extends View {
                 canvas.drawArc(mRange, tmpAngle, sweepAngle, true, mArcPaint);
             }
 
-            int sliceColor = mLuckyItemList.get(i).color != 0 ? mLuckyItemList.get(i).color : defaultBackgroundColor;
+            int sliceColor = mLuckyItemList.get(i).getColor() != 0 ? mLuckyItemList.get(i).getColor() : defaultBackgroundColor;
 
-            if (!TextUtils.isEmpty(mLuckyItemList.get(i).topText))
-                drawTopText(canvas, tmpAngle, sweepAngle, mLuckyItemList.get(i).topText, sliceColor);
-            if (!TextUtils.isEmpty(mLuckyItemList.get(i).secondaryText))
-                drawSecondaryText(canvas, tmpAngle, mLuckyItemList.get(i).secondaryText, sliceColor);
+            if (!TextUtils.isEmpty(mLuckyItemList.get(i).getTopText()))
+                drawTopText(canvas, tmpAngle, sweepAngle, mLuckyItemList.get(i).getTopText(), sliceColor);
+            if (!TextUtils.isEmpty(mLuckyItemList.get(i).getSecondaryText()))
+                drawSecondaryText(canvas, tmpAngle, mLuckyItemList.get(i).getSecondaryText(), sliceColor);
 
-            if (mLuckyItemList.get(i).icon != 0)
+            if (mLuckyItemList.get(i).getIcon() != 0)
                 drawImage(canvas, tmpAngle, BitmapFactory.decodeResource(getResources(),
-                        mLuckyItemList.get(i).icon));
+                        mLuckyItemList.get(i).getIcon()));
             tmpAngle += sweepAngle;
         }
 

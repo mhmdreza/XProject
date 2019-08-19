@@ -1,34 +1,34 @@
 package com.example.mhmdreza_j.xproject.views.game.socket_model
 
 import com.google.gson.annotations.SerializedName
-
 import java.io.Serializable
 
 class StartGameModel : Serializable {
-    @SerializedName("username_1")
-    var firstPerson: String? = null
-    @SerializedName("username_2")
-    var secondPerson: String? = null
-    @SerializedName("avatar_1")
-    var firstavatar: String? = null
-    @SerializedName("avatar_2")
-    var secondAvatar: String? = null
+    @SerializedName("players")
+    var players: ArrayList<PlayerModel> = ArrayList()
 
     @SerializedName("question")
     var question: QuestionModel? = null
 
 }
 
+class PlayerModel : Serializable {
+    @SerializedName("username")
+    var username: String? = null
+    @SerializedName("avatar")
+    var avatar: Int? = null
+}
+
 class QuestionModel : Serializable {
-    @SerializedName("image")
-    var image: String? = null
+//    @SerializedName("image")
+//    var image: ByteArray = ByteArray(1024)
     @SerializedName("desc")
     var description: String? = null
 }
 
 class AnswerValidationModel : Serializable {
     @SerializedName("validation")
-    var validation: String? = null
+    var validation: Int? = null
     @SerializedName("player")
     var player: String? = null
 }

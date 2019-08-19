@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         if (socket?.connected() != true) {
             try {
                 val opt = IO.Options()
-                if (WebservicePrefSetting.getInstance(this).token?.isNotEmpty() == true){
+                if (WebservicePrefSetting.getInstance(this).token.isNotEmpty()){
                     opt.query = "token=${WebservicePrefSetting.getInstance(this).token}"
                 }
                 socket = IO.socket("http://198.143.183.189", opt)

@@ -6,13 +6,12 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
-import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 
 import com.example.mhmdreza_j.xproject.views.main_page.RANKING_POSITION
+import kotlinx.android.synthetic.main.score_view.*
 
 
 /**
@@ -26,11 +25,12 @@ class MarketFragment : BaseFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_market, container, false)
-        val homeButton = view.findViewById<ImageView>(R.id.homeButton)
-        homeButton.setOnClickListener { onBackPressed() }
+        return inflater.inflate(R.layout.fragment_market, container, false)
+    }
 
-        return view
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homeButton.setOnClickListener { onBackPressed() }
     }
 
     override fun onBackPressed() {

@@ -1,6 +1,6 @@
 package com.example.mhmdreza_j.xproject.logic.job.profile
 
-import com.example.mhmdreza_j.xproject.logic.MyJobCreator.Companion.PROFILE
+import com.example.mhmdreza_j.xproject.logic.PROFILE
 import com.example.mhmdreza_j.xproject.logic.job.BaseJob
 import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
 import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException

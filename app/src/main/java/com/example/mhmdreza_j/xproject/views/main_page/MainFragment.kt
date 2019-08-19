@@ -49,7 +49,7 @@ class MainFragment : BaseFragment() {
         navigationView.currentItem = RANKING_POSITION
         navigationView.setDefaultBackgroundResource(R.mipmap.bottom_navigation_background)
 
-        navigationView.setOnTabSelectedListener { position, wasSelected ->
+        navigationView.setOnTabSelectedListener { position, _ ->
             if (selectedMenuItemPosition != position) {
                 onBottomNavigationItemClicked(position)
             }
@@ -57,7 +57,7 @@ class MainFragment : BaseFragment() {
         }
     }
 
-    fun onBottomNavigationItemClicked(position: Int) {
+    private fun onBottomNavigationItemClicked(position: Int) {
         selectedMenuItemPosition = position
         startInnerFragment(selectedMenuItemPosition)
     }

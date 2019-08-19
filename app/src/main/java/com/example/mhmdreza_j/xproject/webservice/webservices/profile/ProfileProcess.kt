@@ -7,11 +7,8 @@ import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseProces
 import java.io.IOException
 
 class ProfileProcess: BaseProcess() {
-    private val request: ProfileRequest = ProfileRequest()
-
     @Throws(IOException::class, WebserviceException::class)
     override fun process(): ProfileResponse {
-        Log.d("QWERTY ProfileProcess: ", MyRetrofit.token)
         val profile = MyRetrofit.webserviceUrls.profile()
         return send(profile)
     }
