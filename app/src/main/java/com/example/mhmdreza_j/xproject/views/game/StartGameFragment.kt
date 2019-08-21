@@ -60,7 +60,7 @@ class StartGameFragment : BaseFragment() {
             }
             val json = args[0] as JSONObject
             Log.d("MATCH_OPPONENT_READY", json.toString())
-            val startGame = Gson().fromJson(json.toString(), StartGameModel::class.java)
+            val startGame = customGson.fromJson(json.toString(), StartGameModel::class.java)
             goToNextPage(startGame)
         }
 

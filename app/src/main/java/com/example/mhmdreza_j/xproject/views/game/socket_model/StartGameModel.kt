@@ -8,7 +8,7 @@ class StartGameModel : Serializable {
     var players: ArrayList<PlayerModel> = ArrayList()
 
     @SerializedName("question")
-    var question: QuestionModel? = null
+    lateinit var question: QuestionModel
 
 }
 
@@ -20,10 +20,12 @@ class PlayerModel : Serializable {
 }
 
 class QuestionModel : Serializable {
-//    @SerializedName("image")
-//    var image: ByteArray = ByteArray(1024)
+    @SerializedName("image")
+    var image: ByteArray = ByteArray(128)
     @SerializedName("desc")
     var description: String? = null
+    @SerializedName("url")
+    var url: String? = null
 }
 
 class AnswerValidationModel : Serializable {
@@ -35,13 +37,12 @@ class AnswerValidationModel : Serializable {
 
 class InGameQuestionModel : Serializable {
     @SerializedName("question")
-    var question: QuestionModel? = null
+    lateinit var question: QuestionModel
 }
 
 class ResultModel : Serializable {
     @SerializedName("result")
     var result: String = ""
+    @SerializedName("answers")
+    var answers = ArrayList<String>()
 }
-
-
-internal class AnswerModel(private val answer: Int, private val validator: Int, private val player: String)

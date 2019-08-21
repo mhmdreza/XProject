@@ -8,10 +8,8 @@ import android.support.v4.content.ContextCompat.getColor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.mhmdreza_j.xproject.R
-import com.example.mhmdreza_j.xproject.lib.lucky_wheel.LuckyWheelView
 import com.example.mhmdreza_j.xproject.lib.lucky_wheel.model.LuckyItem
 import com.example.mhmdreza_j.xproject.logic.job.lucky_wheel.LuckyWheelJob
 import com.example.mhmdreza_j.xproject.logic.job.lucky_wheel.OnLuckyWheelJobSuccessEvent
@@ -21,7 +19,6 @@ import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import com.example.mhmdreza_j.xproject.views.main_page.RANKING_POSITION
-import kotlinx.android.synthetic.main.fragment_finish_game.*
 import kotlinx.android.synthetic.main.fragment_finish_game.homeButton
 import kotlinx.android.synthetic.main.fragment_wheel_of_fortune.*
 import org.greenrobot.eventbus.Subscribe
@@ -38,6 +35,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
     private var isDataLoaded = false
     private var countDownTimer: CountDownTimer? = null
     private lateinit var mainFragment: MainFragment
+    private lateinit var spinTextView: TextView
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -60,14 +58,15 @@ class WheelOfFortuneFragment : EventListenerFragment() {
         }
         luckyWheelView.isTouchEnabled = false
         val data = ArrayList<LuckyItem>()
-        for (i in 0..16) {
+        for (i in 0..15) {
             val color = if (i % 2 == 0) R.color.beige else R.color.titleTextColor
             val luckyItem = LuckyItem("", "", 0
                     , getColor(context!!, color))
             data.add(luckyItem)
         }
         luckyWheelView.setData(data)
-        spin.setOnClickListener {
+        spinTextView = view.findViewById(R.id.spin)
+        spinTextView.setOnClickListener {
             if (isSpinAllowed && isDataLoaded)
                 spinWheel()
         }
@@ -88,7 +87,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
         val dif = (currentTimeMillis() - time) / 1000
         if (dif > 24 * 60 * 60) {
             isSpinAllowed = true
-            spin.setText(R.string.spinNow)
+            spinTextView.text = getString(R.string.spinNow)
         } else {
             if (countDownTimer != null) {
                 countDownTimer!!.cancel()
@@ -100,11 +99,11 @@ class WheelOfFortuneFragment : EventListenerFragment() {
                     val h = seconds / 3600
                     val m = seconds % 3600 / 60
                     val s = seconds % 60
-                    spin.text = getRemainingTime(h, m, s)
+                    spinTextView.text = getRemainingTime(h, m, s)
                 }
 
                 override fun onFinish() {
-                    spin.setText(R.string.spinNow)
+                    spinTextView.text = getString(R.string.spinNow)
                 }
 
             }
