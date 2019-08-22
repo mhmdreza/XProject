@@ -23,7 +23,7 @@ class WebservicePrefSetting private constructor(context: Context) {
         private var instance: WebservicePrefSetting? = null
 
         fun getInstance(context: Context): WebservicePrefSetting {
-            if (instance == null){
+            if (instance == null) {
                 instance = WebservicePrefSetting(context)
             }
             return instance!!
@@ -31,7 +31,7 @@ class WebservicePrefSetting private constructor(context: Context) {
 
         val instanceWithoutContext: WebservicePrefSetting
             get() {
-                return instance ?:throw RuntimeException("Please set context first")
+                return instance ?: throw RuntimeException("Please set context first")
             }
     }
 }

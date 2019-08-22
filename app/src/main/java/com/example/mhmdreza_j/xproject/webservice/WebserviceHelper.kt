@@ -1,6 +1,7 @@
 package com.example.mhmdreza_j.xproject.webservice
 
 import android.content.Context
+import com.example.mhmdreza_j.xproject.webservice.base.MyRetrofit
 import com.example.mhmdreza_j.xproject.webservice.base.WebserviceException
 import com.example.mhmdreza_j.xproject.webservice.base.constants.LoginType
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
@@ -23,6 +24,7 @@ object WebserviceHelper {
         val process = LoginProcess(type, token)
         val response = process.process()
         WebservicePrefSetting.getInstance(context).saveToken(response.token)
+        MyRetrofit.recreateWebserviceUrls()
         WebservicePrefSetting.getInstance(context).isRegister = true
         return response
     }

@@ -2,42 +2,53 @@ package com.example.mhmdreza_j.xproject.webservice.webservices.profile
 
 import com.google.gson.annotations.SerializedName
 import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseResponse
+import com.google.gson.annotations.Expose
 
 class ProfileResponse(
-    @field: SerializedName("name")
-    var name: String? ,
+        @field: SerializedName("show") @Expose
+        val showData: ShowModel?,
 
-    @field: SerializedName("avatar")
-    var avatar: Int? ,
+        @field: SerializedName("level") @Expose
+        val level: Int?,
 
-    @field: SerializedName("level")
-    var level: Int? ,
+        @field: SerializedName("experience") @Expose
+        val experience: Int?,
 
-    @field: SerializedName("experience")
-    var experience: Int? ,
+        @field: SerializedName("flag") @Expose
+        val flag: String?,
 
-    @field: SerializedName("flag")
-    var flag: String? ,
+        @field: SerializedName("coins") @Expose
+        val coins: Int?,
 
-    @field: SerializedName("coins")
-    var coins: Int? ,
+        @field: SerializedName("gem") @Expose
+        val gem: Int?,
 
-    @field: SerializedName("gem")
-    var gem: Int? ,
+        @field: SerializedName("win_strike") @Expose
+        val winStrike: Int?,
 
-    @field: SerializedName("win_strike")
-    var winStrike: Int? ,
+        @field: SerializedName("average_score") @Expose
+        val averageScore: Int?,
 
-    @field: SerializedName("average_score")
-    var averageScore: Int? ,
+        @field: SerializedName("game_number") @Expose
+        val gameNumber: Int?,
 
-    @field: SerializedName("game_number")
-    var gameNumber: Int? ,
+        @field: SerializedName("won_number") @Expose
+        val wonNumber: Int?,
 
-    @field: SerializedName("won_number")
-    var wonNumber: Int? ,
+        @field: SerializedName("friends") @Expose
+        val friends: List<Friend>?
 
-    @field: SerializedName("friends")
-    var friends: List<Friend>?
+) : BaseResponse()
 
-): BaseResponse()
+class ShowModel(
+        @field: SerializedName("name") @Expose
+        val name: String?,
+
+        @field: SerializedName("username") @Expose
+        val username: String?,
+
+        @field: SerializedName("avatar") @Expose
+        val avatar: Int?
+)
+
+

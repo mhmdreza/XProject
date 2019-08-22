@@ -6,9 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.logic.job.profile.GetProfileJob
 import com.example.mhmdreza_j.xproject.logic.job.profile.OnProfileJobSuccessEvent
@@ -17,6 +15,9 @@ import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ShowModel
+import kotlinx.android.synthetic.main.custom_seekbar.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
@@ -25,28 +26,18 @@ import org.greenrobot.eventbus.ThreadMode
  */
 
 class ProfileFragment : EventListenerFragment() {
-
-    private lateinit var coinTextView: TextView
-    private lateinit var gemTextView: TextView
-    private lateinit var profileImageView: ImageView
-    private lateinit var gamesWonTextView: TextView
-    private lateinit var rankTextView: TextView
-    private lateinit var averageScoreTextView: TextView
-    private lateinit var wonInARowScoreTextView: TextView
-    private lateinit var gamesPlayedTextView: TextView
-    private lateinit var titleTextView: TextView
-    private lateinit var progressTextView: TextView
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         GetProfileJob.schedule()
-        initViews(view)
+        initViews()
         setBackground(view)
         setProfileData(getCachedProfile())
-        return view
     }
 
     private fun getCachedProfile(): ProfileResponse {
@@ -60,7 +51,8 @@ class ProfileFragment : EventListenerFragment() {
         val gameNum = SharedPrefUtils.getInt(SP_GAME_NUM, 0)
         val experience = SharedPrefUtils.getInt(SP_EXPERIENCE, 0)
         val name = SharedPrefUtils.getString(SP_NAME, "")
-        return ProfileResponse(name, avatar, level, experience, null, coin, gem, winStrike, avgScore, gameNum, wonNum, null)
+        val username = SharedPrefUtils.getString(SP_USERNAME, "")
+        return ProfileResponse(ShowModel(name, username, avatar), level, experience, null, coin, gem, winStrike, avgScore, gameNum, wonNum, null)
     }
 
     private fun setBackground(view: View) {
@@ -74,19 +66,8 @@ class ProfileFragment : EventListenerFragment() {
         }
     }
 
-    private fun initViews(view: View) {
-        val closeButton = view.findViewById<TextView>(R.id.closeButton)
+    private fun initViews() {
         closeButton.setOnClickListener { onBackPressed() }
-        coinTextView = view.findViewById(R.id.coinTextView)
-        gemTextView = view.findViewById(R.id.gemTextView)
-        profileImageView = view.findViewById(R.id.profileImageView)
-        gamesWonTextView = view.findViewById(R.id.gamesWonTextView)
-        rankTextView = view.findViewById(R.id.rankTextView)
-        averageScoreTextView = view.findViewById(R.id.averageScoreTextView)
-        wonInARowScoreTextView = view.findViewById(R.id.wonInARowScoreTextView)
-        gamesPlayedTextView = view.findViewById(R.id.gamesPlayedTextView)
-        titleTextView = view.findViewById(R.id.titleTextView)
-        progressTextView = view.findViewById(R.id.progressTextView)
     }
 
     override fun onBackPressed() {
@@ -104,27 +85,29 @@ class ProfileFragment : EventListenerFragment() {
     private fun setProfileData(profile: ProfileResponse) {
         coinTextView.text = getStringOfInt(profile.coins)
         gemTextView.text = getStringOfInt(profile.gem)
-        setProfileImage(profileImageView, getInt(profile.avatar))
+        setProfileImage(profileImageView, getInt(profile.showData?.avatar))
         gamesWonTextView.text = getFormattedString(R.string.gamesWon, profile.wonNumber)
         rankTextView.text = getFormattedString(R.string.rank, profile.level)
         averageScoreTextView.text = getFormattedString(R.string.avgScore, profile.averageScore)
         wonInARowScoreTextView.text = getFormattedString(R.string.wonInARow, profile.winStrike)
         gamesPlayedTextView.text = getFormattedString(R.string.gamePlayed, profile.gameNumber)
         progressTextView.text = getStringOfInt(profile.experience)
-        titleTextView.text = String.format("%s %s", resources.getString(R.string.title), profile.name)
+        titleTextView.text = String.format("%s %s", resources.getString(R.string.title), profile.showData?.name)
+        usernameTextView.text = profile.showData?.username
     }
 
     private fun cacheProfile(profile: ProfileResponse) {
         SharedPrefUtils.putInt(SP_COIN, profile.coins ?: 0)
         SharedPrefUtils.putInt(SP_GEM, profile.gem ?: 0)
-        SharedPrefUtils.putInt(SP_AVATAR, profile.avatar ?: 0)
+        SharedPrefUtils.putInt(SP_AVATAR, profile.showData?.avatar ?: 0)
         SharedPrefUtils.putInt(SP_WON_NUM, profile.wonNumber ?: 0)
         SharedPrefUtils.putInt(SP_LEVEL, profile.level ?: 0)
         SharedPrefUtils.putInt(SP_AVG_SCORE, profile.averageScore ?: 0)
         SharedPrefUtils.putInt(SP_WIN_STRIKE, profile.winStrike ?: 0)
         SharedPrefUtils.putInt(SP_GAME_NUM, profile.gameNumber ?: 0)
         SharedPrefUtils.putInt(SP_EXPERIENCE, profile.experience ?: 0)
-        SharedPrefUtils.putString(SP_NAME, profile.name ?: "")
+        SharedPrefUtils.putString(SP_NAME, profile.showData?.name ?: "")
+        SharedPrefUtils.putString(SP_USERNAME, profile.showData?.username ?: "")
     }
 
     private fun getFormattedString(resID: Int, number: Int?): String {

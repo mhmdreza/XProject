@@ -10,15 +10,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object MyRetrofit {
 
-    val webserviceUrls: WebserviceUrls
-        get() = getUrls()
+    var webserviceUrls = getUrls()
 
     private val token: String
         get() {
             return WebservicePrefSetting.instanceWithoutContext.token
         }
 
-
+    fun recreateWebserviceUrls(){
+        webserviceUrls = getUrls()
+    }
     private fun getUrls(): WebserviceUrls {
         val gson = GsonBuilder()
                 .setLenient()
