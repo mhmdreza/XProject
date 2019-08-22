@@ -54,7 +54,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
         homeButton.setOnClickListener { onBackPressed() }
         luckyWheelView.setRound(13)
         luckyWheelView.setLuckyRoundItemSelectedListener {
-            mainFragment.enableBottomNavigation(true)
+            mainFragment.isBottomNavigationEnable =true
         }
         luckyWheelView.isTouchEnabled = false
         val data = ArrayList<LuckyItem>()
@@ -74,7 +74,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
     }
 
     private fun spinWheel() {
-        mainFragment.enableBottomNavigation(false)
+        mainFragment.isBottomNavigationEnable = false
         saveCurrentTime()
         luckyWheelView.startLuckyWheelWithTargetIndex(index)
         updateTextView()

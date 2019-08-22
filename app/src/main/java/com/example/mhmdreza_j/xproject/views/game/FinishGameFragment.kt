@@ -93,6 +93,7 @@ class FinishGameFragment : BaseFragment() {
 
     override fun onBackPressed() {
         if (activity == null) return
+        (activity as MainActivity).startBackgroundMusic()
         (activity as MainActivity).startFragment(MainFragment())
     }
 }

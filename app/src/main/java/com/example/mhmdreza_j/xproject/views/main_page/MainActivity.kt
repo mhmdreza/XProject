@@ -11,6 +11,7 @@ import com.example.mhmdreza_j.xproject.views.LoadingDialog
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.login.LoginFragment
 import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
+import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 import io.socket.client.IO
 import io.socket.client.Socket
@@ -48,22 +49,16 @@ class MainActivity : AppCompatActivity() {
         if (socket?.connected() != true) {
             try {
                 val opt = IO.Options()
-                if (WebservicePrefSetting.getInstance(this).token.isNotEmpty()){
+                if (WebservicePrefSetting.getInstance(this).token.isNotEmpty()) {
                     opt.query = "token=${WebservicePrefSetting.getInstance(this).token}"
                 }
-                socket = IO.socket("http://198.143.183.189", opt)
+                socket = IO.socket(BASE_URL, opt)
             } catch (e: URISyntaxException) {
                 return null
             }
         }
         socket!!.connect()
         return socket
-    }
-
-    fun closeSocket(){
-        if (socket?.connected() == true) {
-            socket!!.disconnect()
-        }
     }
 
     override fun onResume() {
@@ -75,11 +70,12 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
-    fun stopBackgroundMusic() {
-        player!!.stop()
+    private fun stopBackgroundMusic() {
+        player?.stop()
     }
 
     fun startBackgroundMusic() {
+        stopBackgroundMusic()
         player = MediaPlayer.create(this, R.raw.background_music)
         player!!.start()
         player!!.isLooping = true
@@ -94,10 +90,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startWheelMusic() {
-        player!!.stop()
+        stopBackgroundMusic()
         player = MediaPlayer.create(this, R.raw.wheel_of_fortune)
         player!!.start()
+        player!!.setOnCompletionListener { startBackgroundMusic() }
         player!!.isLooping = false
+    }
+
+    fun startGameMusic() {
+        stopBackgroundMusic()
+        player = MediaPlayer.create(this, R.raw.game)
+        player!!.start()
+        player!!.isLooping = true
     }
 
     override fun onStop() {

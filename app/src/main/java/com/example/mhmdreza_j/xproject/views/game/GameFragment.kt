@@ -229,6 +229,7 @@ class GameFragment : BaseFragment() {
     override fun onBackPressed() {
         if (activity == null) return
         socket!!.disconnect()
+        (activity as MainActivity).startBackgroundMusic()
         (activity as MainActivity).startFragment(MainFragment())
     }
 }

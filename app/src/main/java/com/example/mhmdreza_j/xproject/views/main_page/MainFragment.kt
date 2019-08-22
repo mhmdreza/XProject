@@ -21,6 +21,7 @@ class MainFragment : BaseFragment() {
 
     var selectedMenuItemPosition = RANKING_POSITION
     lateinit var navigationView: AHBottomNavigation
+    var isBottomNavigationEnable = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -59,24 +60,9 @@ class MainFragment : BaseFragment() {
 
     private fun onBottomNavigationItemClicked(position: Int) {
         selectedMenuItemPosition = position
-        startInnerFragment(selectedMenuItemPosition)
+        if (isBottomNavigationEnable)
+            startInnerFragment(selectedMenuItemPosition)
     }
-
-
-    fun enableBottomNavigation(enable: Boolean) {
-        if (enable) {
-            navigationView.enableItemAtPosition(0)
-            navigationView.enableItemAtPosition(2)
-            navigationView.enableItemAtPosition(3)
-            navigationView.enableItemAtPosition(4)
-        } else {
-            navigationView.disableItemAtPosition(0)
-            navigationView.disableItemAtPosition(2)
-            navigationView.disableItemAtPosition(3)
-            navigationView.disableItemAtPosition(4)
-        }
-    }
-
 
     private fun startInnerFragment(selectedMenuItemId: Int) {
         val fragment: BaseFragment

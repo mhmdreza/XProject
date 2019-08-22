@@ -69,7 +69,7 @@
 
 
     <ir.tapsell.sdk.bannerads.TapsellBannerView
-        android:id="@+id/banner"
+        android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"

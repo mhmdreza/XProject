@@ -9,15 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.utils.*
-import com.example.mhmdreza_j.xproject.utils.getUsername
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.StartGameModel
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
-import com.google.gson.Gson
 import io.socket.client.Socket
 import ir.tapsell.sdk.bannerads.TapsellBannerType
-import ir.tapsell.sdk.bannerads.TapsellBannerView
+import kotlinx.android.synthetic.main.fragment_start_game.*
 import org.json.JSONObject
 
 const val CATEGORY = "CATEGORY"
@@ -29,14 +27,19 @@ class StartGameFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_start_game, container, false)
+    }
 
-        val view = inflater.inflate(R.layout.fragment_start_game, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         category = arguments?.getInt(CATEGORY, 1) ?: 1
-        initViews(view)
-        val bannerView = view.findViewById<TapsellBannerView>(R.id.banner)
-        bannerView.loadAd(context, START_GAME_KEY, TapsellBannerType.BANNER_300x250)
+        initViews()
         initSocket(view.context)
-        return view
+        startMusic()
+    }
+
+    private fun startMusic() {
+        (activity as MainActivity).startGameMusic()
     }
 
     private fun initSocket(context: Context) {
@@ -66,8 +69,9 @@ class StartGameFragment : BaseFragment() {
 
     }
 
-    private fun initViews(view: View) {
-        view.findViewById<View>(R.id.returnView).setOnClickListener { onBackPressed() }
+    private fun initViews() {
+        returnView.setOnClickListener { onBackPressed() }
+        bannerView.loadAd(context, START_GAME_KEY, TapsellBannerType.BANNER_300x250)
     }
 
     private fun goToNextPage(startGameModel: StartGameModel? = null) {
@@ -84,6 +88,7 @@ class StartGameFragment : BaseFragment() {
     override fun onBackPressed() {
         if (activity == null) return
         socket!!.disconnect()
+        (activity as MainActivity).startBackgroundMusic()
         (activity as MainActivity).startFragment(MainFragment())
     }
 
