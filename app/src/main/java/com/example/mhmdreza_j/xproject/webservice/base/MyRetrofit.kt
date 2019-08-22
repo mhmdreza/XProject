@@ -1,21 +1,19 @@
 package com.example.mhmdreza_j.xproject.webservice.base
 
-import android.util.Log
+import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
+import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 import com.google.gson.GsonBuilder
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
-
-import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
 
 object MyRetrofit {
 
-    var webserviceUrls: WebserviceUrls = getUrls()
+    val webserviceUrls: WebserviceUrls
+        get() = getUrls()
 
-    val token: String
+    private val token: String
         get() {
             return WebservicePrefSetting.instanceWithoutContext.token
         }
