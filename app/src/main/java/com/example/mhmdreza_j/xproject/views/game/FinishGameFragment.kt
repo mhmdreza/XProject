@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.lib.blurry.Blurry
 import com.example.mhmdreza_j.xproject.utils.BlurryUtil
@@ -16,7 +15,6 @@ import com.example.mhmdreza_j.xproject.utils.setProfileImage
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.GameState
 import com.example.mhmdreza_j.xproject.views.game.socket_model.QuestionModel
-import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import ir.tapsell.sdk.bannerads.TapsellBannerType
 import kotlinx.android.synthetic.main.fragment_finish_game.*
@@ -51,7 +49,7 @@ class FinishGameFragment : BaseFragment() {
         when (arguments?.getSerializable(GAME_STATE)) {
             GameState.WIN -> myWinImage.visibility = VISIBLE
             GameState.LOSE -> opponentWinImage.visibility = VISIBLE
-            else -> toastMessage("EQUAL")
+            else -> toastMessage("بازی مساوی شد!")
         }
     }
 
@@ -79,21 +77,15 @@ class FinishGameFragment : BaseFragment() {
                 bundle.putString(CORRECT_ANSWER, answers[i] as String)
                 bundle.putString(MY_ANSWER, myAnswers[i] as String)
                 fragment.arguments = bundle
-                (activity as MainActivity).startFragment(fragment)
+                mainActivity?.startFragment(fragment)
             })
             questionLayout.addView(v, dp(40f, questionLayout.context), dp(40f, questionLayout.context))
         }
     }
 
-    private fun toastMessage(message: String) {
-        activity?.runOnUiThread {
-            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
-        }
-    }
-
     override fun onBackPressed() {
         if (activity == null) return
-        (activity as MainActivity).startBackgroundMusic()
-        (activity as MainActivity).startFragment(MainFragment())
+        mainActivity?.startBackgroundMusic()
+        mainActivity!!.startFragment(MainFragment())
     }
 }

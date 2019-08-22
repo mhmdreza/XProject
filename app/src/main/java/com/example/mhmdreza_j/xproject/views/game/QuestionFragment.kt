@@ -11,7 +11,6 @@ import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.utils.BlurryUtil
 import com.example.mhmdreza_j.xproject.utils.dp
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
-import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import kotlinx.android.synthetic.main.fragment_question.*
 
@@ -30,10 +29,10 @@ class QuestionFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val top = arguments?.getInt(TOP)
-        val left= arguments?.getInt(LEFT)
-        val myAnswer= arguments?.getString(MY_ANSWER)
-        val correctAnswer= arguments?.getString(CORRECT_ANSWER)
-        if (left != null && top != null){
+        val left = arguments?.getInt(LEFT)
+        val myAnswer = arguments?.getString(MY_ANSWER)
+        val correctAnswer = arguments?.getString(CORRECT_ANSWER)
+        if (left != null && top != null) {
             val layoutParams = FrameLayout.LayoutParams(dp(40f, rootLayout.context), dp(40f, rootLayout.context))
             layoutParams.setMargins(left, top, 0, 0)
             val v = View(context)
@@ -45,14 +44,12 @@ class QuestionFragment : BaseFragment() {
         questionComposer?.into(rootLayout)
 
 
-        homeButton.setOnClickListener(View.OnClickListener {
-            if (activity == null) return@OnClickListener
-            (activity as MainActivity).startFragment(MainFragment())
-        })
+        homeButton.setOnClickListener {
+            mainActivity?.startFragment(MainFragment())
+        }
     }
 
     override fun onBackPressed() {
-        if (activity == null) return
-        (activity as MainActivity).startFragment(FinishGameFragment())
+        mainActivity?.startFragment(FinishGameFragment())
     }
 }// Required empty public constructor

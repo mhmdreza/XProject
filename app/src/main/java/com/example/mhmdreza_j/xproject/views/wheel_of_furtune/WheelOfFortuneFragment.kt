@@ -16,7 +16,6 @@ import com.example.mhmdreza_j.xproject.logic.job.lucky_wheel.OnLuckyWheelJobSucc
 import com.example.mhmdreza_j.xproject.utils.LAST_WHEEL_ROTATE
 import com.example.mhmdreza_j.xproject.utils.SharedPrefUtils
 import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
-import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import com.example.mhmdreza_j.xproject.views.main_page.RANKING_POSITION
 import kotlinx.android.synthetic.main.fragment_finish_game.homeButton
@@ -78,7 +77,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
         saveCurrentTime()
         luckyWheelView.startLuckyWheelWithTargetIndex(index)
         updateTextView()
-        (activity as MainActivity).startWheelMusic()
+        mainActivity?.startWheelMusic()
     }
 
     private fun updateTextView() {

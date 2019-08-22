@@ -7,23 +7,22 @@ import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.SeekBar
+import com.bumptech.glide.Glide
+import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.utils.*
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.*
 import com.example.mhmdreza_j.xproject.views.game.socket_model.GameState.*
-import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
+import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
 import com.google.gson.Gson
 import io.socket.client.Socket
+import kotlinx.android.synthetic.main.fragment_game.*
 import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.random.Random
-import com.bumptech.glide.Glide
-import com.example.mhmdreza_j.xproject.R
-import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
-import kotlinx.android.synthetic.main.fragment_game.*
 
 
 /**
@@ -38,6 +37,7 @@ const val ANSWERS = "ANSWERS"
 const val MY_ANSWERS = "MY_ANSWERS"
 
 class GameFragment : BaseFragment() {
+    private var allowOnBackPressed = false
     private val myAnswers = ArrayList<String>()
     private val questions = ArrayList<QuestionModel>()
     private val views = ArrayList<View>()
@@ -156,7 +156,7 @@ class GameFragment : BaseFragment() {
     }
 
     private fun initSocket() {
-        socket = getMainActivity()?.socket ?: return
+        socket = mainActivity?.socket ?: return
         socket!!.on(ANSWER_VALIDATION) { args ->
             val json = args[0] as JSONObject
             val answerValidationModel = Gson().fromJson(json.toString(), AnswerValidationModel::class.java)
@@ -171,6 +171,16 @@ class GameFragment : BaseFragment() {
             val json = args[0] as JSONObject
             val result = Gson().fromJson(json.toString(), ResultModel::class.java)
             endGame(result)
+        }
+        socket!!.on(CLOSE_MATCH) { args ->
+            activity?.runOnUiThread { hideLoading() }
+            val json = args[0] as JSONObject
+            if (json.has(CLOSE_MATCH_RESULT) && json[CLOSE_MATCH_RESULT] == 0) {
+                goToBackFragment()
+            } else {
+                allowOnBackPressed = true
+                toastMessage("در خارج شدن از بازی خطایی رخ داده،\n لطفا دوباره تلاش کنید!")
+            }
         }
     }
 
@@ -198,12 +208,6 @@ class GameFragment : BaseFragment() {
         return json
     }
 
-    private fun toastMessage(message: String) {
-        activity?.runOnUiThread {
-            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
-        }
-    }
-
     private fun endGame(result: ResultModel) {
         val gameState = when (result.result) {
             getUsername(context) -> WIN
@@ -228,8 +232,16 @@ class GameFragment : BaseFragment() {
 
     override fun onBackPressed() {
         if (activity == null) return
+        if (allowOnBackPressed)
+            goToBackFragment()
+        else
+            mainActivity?.cancelMatch()
+    }
+
+    private fun goToBackFragment() {
+        if (activity == null) return
         socket!!.disconnect()
-        (activity as MainActivity).startBackgroundMusic()
-        (activity as MainActivity).startFragment(MainFragment())
+        mainActivity?.startBackgroundMusic()
+        mainActivity?.startFragment(MainFragment())
     }
 }

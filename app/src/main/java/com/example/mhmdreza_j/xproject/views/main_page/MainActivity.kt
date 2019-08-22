@@ -5,16 +5,17 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.mhmdreza_j.xproject.R
+import com.example.mhmdreza_j.xproject.utils.CANCEL_MATCH
 import com.example.mhmdreza_j.xproject.utils.IS_USER_LOGGED_IN
 import com.example.mhmdreza_j.xproject.utils.SharedPrefUtils
 import com.example.mhmdreza_j.xproject.views.LoadingDialog
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.login.LoginFragment
-import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
 import com.example.mhmdreza_j.xproject.webservice.base.constants.BASE_URL
 import com.example.mhmdreza_j.xproject.webservice.pref.WebservicePrefSetting
 import io.socket.client.IO
 import io.socket.client.Socket
+import org.json.JSONObject
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.net.URISyntaxException
@@ -61,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         return socket
     }
 
+    fun cancelMatch() {
+        socket?.emit(CANCEL_MATCH, JSONObject())
+        runOnUiThread { showLoading() }
+    }
+
     override fun onResume() {
         super.onResume()
         startBackgroundMusic()
@@ -70,12 +76,13 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
-    private fun stopBackgroundMusic() {
-        player?.stop()
+    private fun stopMusic() {
+        if (player != null)
+            player!!.stop()
     }
 
     fun startBackgroundMusic() {
-        stopBackgroundMusic()
+        stopMusic()
         player = MediaPlayer.create(this, R.raw.background_music)
         player!!.start()
         player!!.isLooping = true
@@ -90,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startWheelMusic() {
-        stopBackgroundMusic()
+        stopMusic()
         player = MediaPlayer.create(this, R.raw.wheel_of_fortune)
         player!!.start()
         player!!.setOnCompletionListener { startBackgroundMusic() }
@@ -98,15 +105,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startGameMusic() {
-        stopBackgroundMusic()
+        stopMusic()
         player = MediaPlayer.create(this, R.raw.game)
         player!!.start()
         player!!.isLooping = true
     }
 
     override fun onStop() {
+        player?.release()
         super.onStop()
-        player!!.release()
     }
 
     override fun onBackPressed() {

@@ -12,7 +12,6 @@ import com.example.mhmdreza_j.xproject.logic.job.profile.GetProfileJob
 import com.example.mhmdreza_j.xproject.logic.job.profile.OnProfileJobSuccessEvent
 import com.example.mhmdreza_j.xproject.utils.*
 import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
-import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ShowModel
@@ -72,7 +71,7 @@ class ProfileFragment : EventListenerFragment() {
 
     override fun onBackPressed() {
         if (activity == null) return
-        (activity as MainActivity).startFragment(MainFragment())
+        mainActivity!!.startFragment(MainFragment())
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

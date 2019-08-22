@@ -10,6 +10,10 @@ const val ON_TIMEOUT = "on_timeout"
 const val NEXT_QUESTION = "next_question"
 const val MATCH_OVER = "match_over"
 
+const val CANCEL_MATCH = "cancel_match"
+const val CLOSE_MATCH = "close_match"
+const val CLOSE_MATCH_RESULT = "result"
+
 const val STATE_PROCESSING = "processing"
 
 const val GAME_MODEL = "GAME_MODEL"

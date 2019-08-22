@@ -1,19 +1,20 @@
 package com.example.mhmdreza_j.xproject.views.base_class
 
 import android.support.v4.app.Fragment
-
+import android.widget.Toast
 import com.example.mhmdreza_j.xproject.views.main_page.MainActivity
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
-import com.example.mhmdreza_j.xproject.webservice.WebserviceHelper
-import io.socket.client.IO
-import io.socket.client.Socket
-
-import org.greenrobot.eventbus.EventBus
-import java.net.URISyntaxException
 
 open class BaseFragment : Fragment() {
     var parentFragment: MainFragment? = null
     var nextFragment: BaseFragment? = null
+    val mainActivity: MainActivity?
+        get() {
+            if (activity == null || activity !is MainActivity) {
+                return null
+            }
+            return activity as MainActivity
+        }
 
     open fun onBackPressed() {
         if (activity == null) return
@@ -22,24 +23,23 @@ open class BaseFragment : Fragment() {
 
     fun onNextPressed() {
         if (activity == null || nextFragment == null) return
-
-        (activity as MainActivity).startFragment(nextFragment!!)
+        mainActivity!!.startFragment(nextFragment!!)
     }
 
-    fun getMainActivity(): MainActivity? {
-        if (activity == null || activity !is MainActivity){
-            return null
-        }
-        return activity as MainActivity
-    }
 
     fun showLoading() {
         if (activity == null) return
-        (activity as MainActivity).showLoading()
+        mainActivity!!.showLoading()
     }
 
     fun hideLoading() {
         if (activity == null) return
-        (activity as MainActivity).hideLoading()
+        mainActivity!!.hideLoading()
+    }
+
+    protected fun toastMessage(message: String) {
+        activity?.runOnUiThread {
+            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        }
     }
 }
