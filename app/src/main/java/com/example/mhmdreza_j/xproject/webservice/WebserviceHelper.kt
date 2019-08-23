@@ -24,8 +24,8 @@ object WebserviceHelper {
         val process = LoginProcess(type, token)
         val response = process.process()
         WebservicePrefSetting.getInstance(context).saveToken(response.token)
-        MyRetrofit.recreateWebserviceUrls()
         WebservicePrefSetting.getInstance(context).isRegister = true
+        MyRetrofit.recreateWebserviceUrls()
         return response
     }
 
