@@ -8,8 +8,8 @@ android {
         applicationId "com.example.mhmdreza_j.xproject"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 10101
-        versionName "0.1.1"
+        versionCode 10102
+        versionName "0.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
