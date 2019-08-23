@@ -164,7 +164,7 @@ class GameFragment : BaseFragment() {
         }
         socket!!.on(NEXT_QUESTION) { args ->
             val json = args[0] as JSONObject
-            val inGameQuestionModel = customGson.fromJson(json.toString(), InGameQuestionModel::class.java)
+            val inGameQuestionModel = Gson().fromJson(json.toString(), InGameQuestionModel::class.java)
             showQuestion(inGameQuestionModel.question)
         }
         socket!!.on(MATCH_OVER) { args ->

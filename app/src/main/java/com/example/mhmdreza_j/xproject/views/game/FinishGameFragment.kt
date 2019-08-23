@@ -18,6 +18,7 @@ import com.example.mhmdreza_j.xproject.views.game.socket_model.QuestionModel
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import ir.tapsell.sdk.bannerads.TapsellBannerType
 import kotlinx.android.synthetic.main.fragment_finish_game.*
+import kotlin.math.min
 
 const val MY_ANSWER = "MY_ANSWER"
 const val CORRECT_ANSWER = "CORRECT_ANSWER"
@@ -55,14 +56,21 @@ class FinishGameFragment : BaseFragment() {
 
     private fun addViews() {
         val answers = arguments?.getSerializable(ANSWERS) as ArrayList<*>
-        val myAnswers = arguments?.getSerializable(MY_ANSWERS) as ArrayList<*>
+        val myAnswers = arguments?.getSerializable(MY_ANSWERS) as ArrayList<String>
         val questions = arguments?.getSerializable(QUESTIONS) as ArrayList<*>
+        normalizeMyAnswer(myAnswers, questions)
+        val index = min(questions.size, myAnswers.size)
         for (i in 0..4) {
             val v = View(context)
-            val isCorrectAnswer = answers[i] == myAnswers[i]
-            v.setBackgroundResource(if (isCorrectAnswer) R.drawable.question_green else R.drawable.question_red)
+            val inBoundIndex = i < index
+            val isCorrectAnswer = if (inBoundIndex) answers[i] == myAnswers[i] else false
+            v.setBackgroundResource(when {
+                i >= questions.size -> R.drawable.question_transparent // not shown question
+                isCorrectAnswer -> R.drawable.question_green // wrong answered question
+                else -> R.drawable.question_red// right answered question
+            })
             v.setOnClickListener(View.OnClickListener { v1 ->
-                if (activity == null) {
+                if (activity == null || i >= questions.size) {
                     return@OnClickListener
                 }
                 val composer = Blurry.with(v1.context)
@@ -75,11 +83,17 @@ class FinishGameFragment : BaseFragment() {
                 bundle.putInt(TOP, v1.top + questionLayout.top)
                 bundle.putSerializable(QUESTION, questions[i] as QuestionModel)
                 bundle.putString(CORRECT_ANSWER, answers[i] as String)
-                bundle.putString(MY_ANSWER, myAnswers[i] as String)
+                bundle.putString(MY_ANSWER, myAnswers[i])
                 fragment.arguments = bundle
                 mainActivity?.startFragment(fragment)
             })
             questionLayout.addView(v, dp(40f, questionLayout.context), dp(40f, questionLayout.context))
+        }
+    }
+
+    private fun normalizeMyAnswer(myAnswers: ArrayList<String>, questions: ArrayList<*>) {
+        while (myAnswers.size < questions.size) {
+            myAnswers.add("")
         }
     }
 

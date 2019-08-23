@@ -77,8 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun stopMusic() {
-        if (player != null)
-            player!!.stop()
+        player?.release()
     }
 
     fun startBackgroundMusic() {
@@ -112,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        player?.release()
+        stopMusic()
         super.onStop()
     }
 

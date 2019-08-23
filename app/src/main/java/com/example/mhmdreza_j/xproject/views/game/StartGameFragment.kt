@@ -12,6 +12,7 @@ import com.example.mhmdreza_j.xproject.utils.*
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.StartGameModel
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
+import com.google.gson.Gson
 import io.socket.client.Socket
 import ir.tapsell.sdk.bannerads.TapsellBannerType
 import kotlinx.android.synthetic.main.fragment_start_game.*
@@ -72,7 +73,7 @@ class StartGameFragment : BaseFragment() {
             activity?.runOnUiThread { hideLoading() }
             val json = args[0] as JSONObject
             Log.d("MATCH_OPPONENT_READY", json.toString())
-            val startGame = customGson.fromJson(json.toString(), StartGameModel::class.java)
+            val startGame = Gson().fromJson(json.toString(), StartGameModel::class.java)
             goToNextPage(startGame)
         }
 

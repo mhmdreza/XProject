@@ -20,8 +20,6 @@ class PlayerModel : Serializable {
 }
 
 class QuestionModel : Serializable {
-    @SerializedName("image")
-    var image: ByteArray = ByteArray(128)
     @SerializedName("desc")
     var description: String? = null
     @SerializedName("url")
