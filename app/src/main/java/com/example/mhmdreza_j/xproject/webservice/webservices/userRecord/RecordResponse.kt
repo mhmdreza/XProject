@@ -7,7 +7,7 @@ class RecordResponse(
         @field: SerializedName("coins")
         var coins: Int = 0,
 
-        @field: SerializedName("gem")
+        @field: SerializedName("gems")
         var gem: Int = 0,
 
         @field: SerializedName("avatar")
