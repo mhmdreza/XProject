@@ -7,6 +7,8 @@ import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginRequest
 import com.example.mhmdreza_j.xproject.webservice.webservices.login.LoginResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyWheelResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.spin_now.SpinNowRequest
+import com.example.mhmdreza_j.xproject.webservice.webservices.spin_now.SpinNowResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -28,4 +30,7 @@ interface WebserviceUrls {
 
     @GET(LUCKY_WHEEL)
     fun luckyWheel(): Call<LuckyWheelResponse>
+
+    @POST(SPIN_NOW)
+    fun spinNow(request: SpinNowRequest): Call<SpinNowResponse>
 }

@@ -1,7 +1,7 @@
 package com.example.mhmdreza_j.xproject.lib.ah_bottom.notification;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 /**
  * @author repitch

@@ -1,7 +1,7 @@
 package com.example.mhmdreza_j.xproject.lib.ah_bottom;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 

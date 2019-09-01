@@ -13,6 +13,8 @@ import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyW
 import com.example.mhmdreza_j.xproject.webservice.webservices.lucky_wheel.LuckyWheelResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.profile.ProfileResponse
+import com.example.mhmdreza_j.xproject.webservice.webservices.spin_now.SpinNowProcess
+import com.example.mhmdreza_j.xproject.webservice.webservices.spin_now.SpinNowResponse
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordProcess
 import com.example.mhmdreza_j.xproject.webservice.webservices.userRecord.RecordResponse
 import java.io.IOException
@@ -37,6 +39,9 @@ object WebserviceHelper {
 
     @Throws(IOException::class, WebserviceException::class)
     fun buy(cost: Int): BuyResponse = BuyProcess(cost).process()
+
+    @Throws(IOException::class, WebserviceException::class)
+    fun spinNow(id: String): SpinNowResponse = SpinNowProcess(id).process()
 
     @Throws(IOException::class, WebserviceException::class)
     fun luckyWheel(): LuckyWheelResponse = LuckyWheelProcess().process()

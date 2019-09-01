@@ -3,7 +3,7 @@ package com.example.mhmdreza_j.xproject.views.main_page
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.utils.CANCEL_MATCH
 import com.example.mhmdreza_j.xproject.utils.IS_USER_LOGGED_IN

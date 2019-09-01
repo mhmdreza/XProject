@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 
 class LuckyWheelResponse(
         @field: SerializedName("items")
-        val items: ArrayList<LuckyWheelItem>,
-        @field: SerializedName("selectedItem")
-        val selectedItem: LuckyWheelItem
+        val items: ArrayList<LuckyWheelItem>
 ) : BaseResponse()
 
 class LuckyWheelItem(
+        @field: SerializedName("_id")
+        val id: String,
         @field: SerializedName("type")
         val type: String,
         @field: SerializedName("value")

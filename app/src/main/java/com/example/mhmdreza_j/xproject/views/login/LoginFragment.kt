@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.crashlytics.android.Crashlytics
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.logic.job.login.LoginJob
 import com.example.mhmdreza_j.xproject.logic.job.login.OnLoginSuccessEvent
@@ -20,6 +21,7 @@ import com.facebook.FacebookSdk
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
+import kotlinx.android.synthetic.main.fragment_login.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
@@ -57,6 +59,11 @@ class LoginFragment : EventListenerFragment() {
         guestLogin.setOnClickListener(guestOnClickListener)
         guestPlay.setOnClickListener(guestOnClickListener)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        crash.setOnClickListener { Crashlytics.getInstance().crash() }
     }
 
     override fun onStop() {
