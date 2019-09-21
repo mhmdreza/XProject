@@ -132,7 +132,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
         for (i in 0 until record.items.size) {
             val icon = if (record.items[i].type == "coin") R.drawable.ic_coin else R.drawable.ic_gem
             val color = if (i % 2 == 0) R.color.beige else R.color.titleTextColor
-            val luckyItem = LuckyItem((record.items[i].value + i).toString(), "", icon
+            val luckyItem = LuckyItem((record.items[i].value).toString(), "", icon
                     , getColor(context!!, color))
             data.add(luckyItem)
         }

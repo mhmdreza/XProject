@@ -148,7 +148,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face2" />
+                    android:src="@drawable/face2" />
 
             </RelativeLayout>
 
@@ -283,7 +283,7 @@
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face3" />
+                    android:src="@drawable/face3" />
 
                 <ImageView
                     android:layout_width="60dp"
@@ -291,7 +291,7 @@
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face1" />
+                    android:src="@drawable/face1" />
 
                 <ImageView
                     android:layout_width="60dp"
@@ -299,7 +299,7 @@
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face2" />
+                    android:src="@drawable/face2" />
 
                 <ImageView
                     android:layout_width="60dp"
@@ -307,7 +307,7 @@
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/profile_background"
-                    android:src="@mipmap/face4" />
+                    android:src="@drawable/face4" />
 
                 <ImageView
                     android:layout_width="60dp"

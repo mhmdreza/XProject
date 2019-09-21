@@ -4,6 +4,6 @@ import com.example.mhmdreza_j.xproject.webservice.base.requestProcess.BaseReques
 import com.google.gson.annotations.SerializedName
 
 class SpinNowRequest(
-        @field: SerializedName("_id")
+        @field: SerializedName("item_id")
         val id: String = ""
 ) : BaseRequest()

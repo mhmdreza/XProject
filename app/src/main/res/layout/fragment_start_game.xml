@@ -1,82 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/play_background"
-    android:orientation="vertical"
     tools:context=".views.game.StartGameFragment">
 
-    <TextView
-        android:id="@+id/prizeTextView"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/prize_background"
-        android:gravity="center"
-        android:text="PRIZE\n2$"
-        android:textColor="@color/darkBlue"
-        android:textSize="24sp" />
+    <ImageView
+        android:id="@+id/backgroundIV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/profileImageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="start"
-            android:background="@drawable/profile_background_game"
-            android:padding="12dp"
-            android:src="@mipmap/face5" />
-
-        <View
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/vs" />
-
-        <ImageView
-            android:id="@+id/opponent"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="start"
-            android:background="@drawable/profile_background_game"
-            android:padding="42dp"
-            android:src="@drawable/ic_unknown" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/returnView"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/return_background"
-        android:gravity="center"
-        android:text="RETURN"
-        android:textColor="@color/beige"
-        android:textSize="24sp" />
-
-
-    <ir.tapsell.sdk.bannerads.TapsellBannerView
-        android:id="@+id/bannerView"
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
-        android:background="@android:color/transparent"
-        app:tapsell_banner_type="banner_300x250"
-        app:tapsell_zone_id="5d002af20e22b70001f1bf06" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="start"
+                android:background="@drawable/profile_background_game"
+                android:padding="12dp"
+                android:src="@drawable/face5" />
+
+            <ImageView
+                android:id="@+id/opponent"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="start"
+                android:background="@drawable/profile_background_game"
+                android:padding="42dp"
+                android:src="@drawable/ic_unknown" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/vs" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/prizeTextView"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/prize_background"
+            android:gravity="center"
+            android:text="PRIZE\n2$"
+            android:textColor="@color/darkBlue"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/returnView"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/return_background"
+            android:gravity="center"
+            android:text="RETURN"
+            android:textColor="@color/beige"
+            android:textSize="24sp" />
+
+
+        <ir.tapsell.sdk.bannerads.TapsellBannerView
+            android:id="@+id/bannerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            app:tapsell_banner_type="banner_300x250"
+            app:tapsell_zone_id="5d002af20e22b70001f1bf06" />
+
+    </LinearLayout>
+</FrameLayout>
+

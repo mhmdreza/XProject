@@ -90,6 +90,7 @@ class StartGameFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        setBackgroundResource(backgroundIV, R.mipmap.play_background)
         returnView.setOnClickListener { onBackPressed() }
         bannerView.loadAd(context, START_GAME_KEY, TapsellBannerType.BANNER_300x250)
     }
