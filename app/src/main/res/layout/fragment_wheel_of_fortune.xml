@@ -32,8 +32,9 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/text_view_background"
         android:gravity="center"
+        android:padding="8dp"
         android:text="23:59:59 UNTIL NEXT SPIN"
         android:textColor="@color/beige"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>

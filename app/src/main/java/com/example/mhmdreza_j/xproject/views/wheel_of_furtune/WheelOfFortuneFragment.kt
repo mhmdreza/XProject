@@ -116,7 +116,7 @@ class WheelOfFortuneFragment : EventListenerFragment() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: OnSpinNowJobSuccessEvent) {
-        toastMessage("OnSpinNowJobSuccessEvent")
+//        toastMessage("OnSpinNowJobSuccessEvent")
         mainFragment.isBottomNavigationEnable = false
         saveCurrentTime()
         luckyWheelView.startLuckyWheelWithTargetIndex(index)
