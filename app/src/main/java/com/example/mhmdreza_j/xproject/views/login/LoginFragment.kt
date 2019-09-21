@@ -11,6 +11,7 @@ import com.example.mhmdreza_j.xproject.logic.job.login.LoginJob
 import com.example.mhmdreza_j.xproject.logic.job.login.OnLoginSuccessEvent
 import com.example.mhmdreza_j.xproject.utils.IS_USER_LOGGED_IN
 import com.example.mhmdreza_j.xproject.utils.SharedPrefUtils
+import com.example.mhmdreza_j.xproject.utils.setBackgroundResource
 import com.example.mhmdreza_j.xproject.views.base_class.EventListenerFragment
 import com.example.mhmdreza_j.xproject.views.main_page.MainFragment
 import com.facebook.CallbackManager
@@ -20,6 +21,7 @@ import com.facebook.FacebookSdk
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
+import kotlinx.android.synthetic.main.fragment_login.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
@@ -57,6 +59,11 @@ class LoginFragment : EventListenerFragment() {
         guestLogin.setOnClickListener(guestOnClickListener)
         guestPlay.setOnClickListener(guestOnClickListener)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setBackgroundResource(backgroundIV, R.mipmap.login_background)
     }
 
     override fun onStop() {

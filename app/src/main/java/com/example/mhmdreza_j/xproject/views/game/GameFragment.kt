@@ -69,6 +69,7 @@ class GameFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        setBackgroundResource(backgroundIV, R.mipmap.play_background)
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 progressView.text = seekBar.progress.toString()
@@ -150,7 +151,7 @@ class GameFragment : BaseFragment() {
             }
         }, QUESTION_TIME)
         activity?.runOnUiThread {
-            questionTextView.text = question.description
+//            questionTextView.text = question.description
             Glide.with(questionImageView).load(BASE_URL + question.url).into(questionImageView)
         }
     }

@@ -2,17 +2,19 @@ package com.example.mhmdreza_j.xproject.views.main_page
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.lib.ah_bottom.AHBottomNavigation
 import com.example.mhmdreza_j.xproject.lib.ah_bottom.AHBottomNavigationItem
+import com.example.mhmdreza_j.xproject.utils.setBackgroundResource
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.coin.CoinFragment
 import com.example.mhmdreza_j.xproject.views.market.MarketFragment
 import com.example.mhmdreza_j.xproject.views.wheel_of_furtune.WheelOfFortuneFragment
+import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
  * A simple [Fragment] subclass.
@@ -31,6 +33,12 @@ class MainFragment : BaseFragment() {
         initBottomNavigation(view)
         startInnerFragment(selectedMenuItemPosition)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setBackgroundResource(backgroundIV, R.mipmap.background)
+
     }
 
 

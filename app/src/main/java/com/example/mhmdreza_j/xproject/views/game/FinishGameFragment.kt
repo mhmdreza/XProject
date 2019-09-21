@@ -8,10 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.mhmdreza_j.xproject.R
 import com.example.mhmdreza_j.xproject.lib.blurry.Blurry
-import com.example.mhmdreza_j.xproject.utils.BlurryUtil
-import com.example.mhmdreza_j.xproject.utils.FINISH_GAME_KEY
-import com.example.mhmdreza_j.xproject.utils.dp
-import com.example.mhmdreza_j.xproject.utils.setProfileImage
+import com.example.mhmdreza_j.xproject.utils.*
 import com.example.mhmdreza_j.xproject.views.base_class.BaseFragment
 import com.example.mhmdreza_j.xproject.views.game.socket_model.GameState
 import com.example.mhmdreza_j.xproject.views.game.socket_model.QuestionModel
@@ -41,6 +38,7 @@ class FinishGameFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        setBackgroundResource(backgroundIV, R.mipmap.play_background)
         addViews()
         homeButton.setOnClickListener { onBackPressed() }
 
