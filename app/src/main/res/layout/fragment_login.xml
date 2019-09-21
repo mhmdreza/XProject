@@ -12,6 +12,7 @@
         android:layout_height="70dp"
         android:textSize="22sp"
         android:text="crash crash crash crash crash crash crash crash crash crash crash crash "
+        android:visibility="gone"
         android:background="@color/green"
         android:id="@+id/crash"/>
 
